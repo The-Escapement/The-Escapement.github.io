@@ -1,0 +1,11 @@
+# This is a recommended standard Direnv .envrc for this repository.
+#
+# Assuming you have Nix and Direnv set up, at the project root:
+#
+#     echo 'source .envrc-standard' > .envrc
+#     direnv allow
+#
+# This allows you to put in your own custom environment variable setting for the
+# project without affecting what's checked in.
+
+use flake
