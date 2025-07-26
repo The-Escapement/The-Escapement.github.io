@@ -1,0 +1,3 @@
+# Direnv-related
+.direnv/
+.envrc
