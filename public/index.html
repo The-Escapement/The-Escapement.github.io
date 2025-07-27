@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="dest/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -45,9 +45,11 @@
 
   <!-- Mobile hamburger button -->
   <button id="mobile-menu-button" class="nav-mobile-toggle" aria-label="Toggle menu">
-    <svg class="fill-current h-6 w-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 6h18M3 12h18M3 18h18"/>
-    </svg>
+    <div class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </button>
   <main class="site-container">
     <section id="splash">
@@ -76,8 +78,8 @@
         consumer experiences from Tokyo to Miami to Riyadh.
       </p>
     </section>
-    <section id="team">
-      <h3>Core Team</h3>
+    <section>
+      <h3 id="team">Core Team</h3>
       <p>Follow our team on Instagram.</p>
       <ul class="handles">
         <li>@watchanish</li>
@@ -88,7 +90,7 @@
         <li>@horoloupe</li>
         <li>@waitlisted</li>
       </ul>
-      <h3>Partners</h3>
+      <h3 id="partners">Partners</h3>
       <p>Check out our collaborators around the world.</p>
       <ul class="handles">
         <li>@andrew_morgan_watches</li>
@@ -128,10 +130,14 @@
       const mobileOverlay = document.getElementById("nav-mobile-overlay");
       const mobileLinks = document.querySelectorAll(".nav-mobile-link");
 
-      // Open mobile menu
+      // Toggle mobile menu
       mobileMenuButton.addEventListener("click", function () {
-        mobileOverlay.classList.add("active");
-        document.body.style.overflow = "hidden";
+        if (mobileOverlay.classList.contains("active")) {
+          closeMobileMenu();
+        } else {
+          mobileOverlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
       });
 
       // Close mobile menu
@@ -163,13 +169,15 @@
           const isSplashVisible = splashRect.bottom > 0 && splashRect.top < window.innerHeight;
 
           if (isSplashVisible) {
-            // Show navigation links, hide brand title
+            // Hide brand title, keep navigation links visible
             navBrandTitle.style.opacity = "0";
-            navLinks.style.opacity = "1";
+            navBrandTitle.style.transform = "translateY(-20px)";
+            navLinks.style.transform = "translateY(0)";
           } else {
-            // Show brand title, hide navigation links
+            // Show brand title, push navigation links down
             navBrandTitle.style.opacity = "1";
-            navLinks.style.opacity = "0";
+            navBrandTitle.style.transform = "translateY(0)";
+            navLinks.style.transform = "translateY(40px)";
           }
         }
       }

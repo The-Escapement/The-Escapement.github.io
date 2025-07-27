@@ -2,13 +2,17 @@
   "name": "the-escapement",
   "version": "1.0.0",
   "scripts": {
-    "build:css": "tailwindcss -i src/tailwind.css -o dest/style.css --minify",
-    "watch:css": "tailwindcss -i src/tailwind.css -o dest/style.css --watch"
+    "build:css": "tailwindcss -i src/tailwind.css -o dist/css/style.css --minify",
+    "watch:css": "tailwindcss -i src/tailwind.css -o dist/css/style.css --watch",
+    "build": "npm run build:css && npm run copy-public",
+    "copy-public": "cpy 'public/**/*' 'dist' --cwd=.",
+    "dev": "npm run watch:css"
   },
   "devDependencies": {
-    "tailwindcss": "^4.0.0",
-    "postcss": "^8.4.0",
     "autoprefixer": "^10.4.0",
-    "postcss-cli": "^10.0.0"
+    "cpy-cli": "^5.0.0",
+    "postcss": "^8.4.0",
+    "postcss-cli": "^10.0.0",
+    "tailwindcss": "^4.0.0"
   }
 }
