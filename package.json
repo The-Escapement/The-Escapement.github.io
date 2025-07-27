@@ -6,11 +6,12 @@
     "build:public": "cpy 'public/**/*' 'dist' --cwd=.",
     "build": "npm run build:css && npm run build:public",
     "watch:css": "tailwindcss -i src/tailwind.css -o dist/css/style.css --watch",
-    "watch:public": "cpy 'public/**/*' 'dist' --cwd=. --watch",
+    "watch:public": "chokidar 'public/**/*' -c 'npm run build:public'",
     "watch": "concurrently \"npm run watch:css\" \"npm run watch:public\""
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
+    "chokidar-cli": "^3.0.0",
     "concurrently": "^9.2.0",
     "cpy-cli": "^5.0.0",
     "postcss": "^8.4.0",
