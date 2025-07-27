@@ -1,3 +1,2 @@
-# Direnv-related
-.direnv/
-.envrc
+node_modules/
+dest/
