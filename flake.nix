@@ -30,6 +30,7 @@
           legacyPackages.nixpkgs = nixpkgs;
           devshells.default.packages = [
             config.treefmt.build.wrapper
+            nixpkgs.unstable.instaloader
             nixpkgs.unstable.nodejs_24
             nixpkgs.unstable.pnpm_10
             nixpkgs.unstable.prettier
