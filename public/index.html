@@ -1,195 +1,211 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Escapement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Escapement</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-
-<body>
-  <nav class="nav-sidebar">
-    <div class="nav-brand">
-      <span class="nav-brand-title" id="nav-brand-title">The Escapement</span>
-    </div>
-    <div class="nav-links" id="nav-links">
-      <a href="#about" class="nav-link">About</a>
-      <a href="#team" class="nav-link">Team</a>
-      <a href="#partners" class="nav-link">Partners</a>
-    </div>
-  </nav>
-
-  <!-- Mobile navigation overlay -->
-  <div class="nav-mobile-overlay" id="nav-mobile-overlay">
-    <div class="nav-mobile-content">
-      <div class="nav-mobile-header">
-        <span class="nav-brand-title">The Escapement</span>
-        <button id="mobile-close-button" class="nav-mobile-close" aria-label="Close menu">
-          <svg class="fill-current h-6 w-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
+  <body>
+    <nav class="nav-sidebar">
+      <div class="nav-brand">
+        <span class="nav-brand-title" id="nav-brand-title">The Escapement</span>
       </div>
-      <div class="nav-mobile-links">
-        <a href="#about" class="nav-mobile-link">About</a>
-        <a href="#team" class="nav-mobile-link">Team</a>
-        <a href="#partners" class="nav-mobile-link">Partners</a>
+      <div class="nav-links" id="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#team" class="nav-link">Team</a>
+        <a href="#partners" class="nav-link">Partners</a>
+      </div>
+    </nav>
+
+    <!-- Mobile navigation overlay -->
+    <div class="nav-mobile-overlay" id="nav-mobile-overlay">
+      <div class="nav-mobile-content">
+        <div class="nav-mobile-header">
+          <span class="nav-brand-title">The Escapement</span>
+          <button
+            id="mobile-close-button"
+            class="nav-mobile-close"
+            aria-label="Close menu"
+          >
+            <svg
+              class="fill-current h-6 w-6"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="nav-mobile-links">
+          <a href="#about" class="nav-mobile-link">About</a>
+          <a href="#team" class="nav-mobile-link">Team</a>
+          <a href="#partners" class="nav-mobile-link">Partners</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Mobile hamburger button -->
-  <button id="mobile-menu-button" class="nav-mobile-toggle" aria-label="Toggle menu">
-    <div class="hamburger-icon">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </button>
-  <main class="site-container">
-    <section id="splash">
-      <h1>The Escapement</h1>
-      <h2>For Collectors, By Collectors</h2>
-      <p>
-        The Escapement is not just a watch show&mdash;it's a stage, a story, and
-        a celebration.
-      </p>
-      <p>
-        Discover a world where horology meets music, design, and immersive
-        storytelling.
-      </p>
-    </section>
-    <section id="about">
-      <h3>About</h3>
-      <p>
-        The Escapement was born from a shared vision among lifelong horology
-        enthusiasts and seasoned event producers to create a first-of-a-kind,
-        immersive and interactive event dedicated entirely to watch
-        collectors.
-      </p>
-      <p>
-        Our founding team brings over 100 years of combined expertise in both
-        horology and live events. Our events team has delivered world-class
-        consumer experiences from Tokyo to Miami to Riyadh.
-      </p>
-    </section>
-    <section>
-      <h3 id="team">Core Team</h3>
-      <p>Follow our team on Instagram.</p>
-      <ul class="handles">
-        <li>@watchanish</li>
-        <li>@rjbroer</li>
-        <li>@wei_koh_revolution</li>
-        <li>@kingflum</li>
-        <li>@changingtimes001</li>
-        <li>@horoloupe</li>
-        <li>@waitlisted</li>
-      </ul>
-      <h3 id="partners">Partners</h3>
-      <p>Check out our collaborators around the world.</p>
-      <ul class="handles">
-        <li>@andrew_morgan_watches</li>
-        <li>@arabwatchguide</li>
-        <li>@equationdutemps</li>
-        <li>@fumanku</li>
-        <li>@jacopo_corvo</li>
-        <li>@langepedia</li>
-        <li>@marc.gebauer</li>
-        <li>@nicoleonardvanderhorst</li>
-        <li>@nycwatchguy</li>
-        <li>@Perezscope</li>
-        <li>@s7ndro</li>
-        <li>@samuelnaldi</li>
-        <li>@Shani.watch</li>
-        <li>@silas.walton</li>
-        <li>@SwissWatchGang</li>
-        <li>@TheJourneGuy</li>
-        <li>@Tony_Traina</li>
-        <li>@unekual</li>
-        <li>@watchgirloffduty</li>
-        <li>@watchstorydxb</li>
-        <li>@watchthetime</li>
-        <!-- <li>@Seddiqi</li> -->
-      </ul>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 The Escapement. All rights reserved.</p>
-  </footer>
+    <!-- Mobile hamburger button -->
+    <button
+      id="mobile-menu-button"
+      class="nav-mobile-toggle"
+      aria-label="Toggle menu"
+    >
+      <div class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+    <main class="site-container">
+      <section id="splash">
+        <h1>The Escapement</h1>
+        <h2>For Collectors, By Collectors</h2>
+        <p>
+          The Escapement is not just a watch show&mdash;it's a stage, a story,
+          and a celebration.
+        </p>
+        <p>
+          Discover a world where horology meets music, design, and immersive
+          storytelling.
+        </p>
+      </section>
+      <section id="about">
+        <h3>About</h3>
+        <p>
+          The Escapement was born from a shared vision among lifelong horology
+          enthusiasts and seasoned event producers to create a first-of-a-kind,
+          immersive and interactive event dedicated entirely to watch
+          collectors.
+        </p>
+        <p>
+          Our founding team brings over 100 years of combined expertise in both
+          horology and live events. Our events team has delivered world-class
+          consumer experiences from Tokyo to Miami to Riyadh.
+        </p>
+      </section>
+      <section>
+        <h3 id="team">Core Team</h3>
+        <p>Follow our team on Instagram.</p>
+        <ul class="handles">
+          <li>@watchanish</li>
+          <li>@rjbroer</li>
+          <li>@wei_koh_revolution</li>
+          <li>@kingflum</li>
+          <li>@changingtimes001</li>
+          <li>@horoloupe</li>
+          <li>@waitlisted</li>
+        </ul>
+        <h3 id="partners">Partners</h3>
+        <p>Check out our collaborators around the world.</p>
+        <ul class="handles">
+          <li>@andrew_morgan_watches</li>
+          <li>@arabwatchguide</li>
+          <li>@equationdutemps</li>
+          <li>@fumanku</li>
+          <li>@jacopo_corvo</li>
+          <li>@langepedia</li>
+          <li>@marc.gebauer</li>
+          <li>@nicoleonardvanderhorst</li>
+          <li>@nycwatchguy</li>
+          <li>@Perezscope</li>
+          <li>@s7ndro</li>
+          <li>@samuelnaldi</li>
+          <li>@Shani.watch</li>
+          <li>@silas.walton</li>
+          <li>@SwissWatchGang</li>
+          <li>@TheJourneGuy</li>
+          <li>@Tony_Traina</li>
+          <li>@unekual</li>
+          <li>@watchgirloffduty</li>
+          <li>@watchstorydxb</li>
+          <li>@watchthetime</li>
+          <!-- <li>@Seddiqi</li> -->
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 The Escapement. All rights reserved.</p>
+    </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Mobile menu functionality
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileCloseButton = document.getElementById("mobile-close-button");
-      const mobileOverlay = document.getElementById("nav-mobile-overlay");
-      const mobileLinks = document.querySelectorAll(".nav-mobile-link");
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileCloseButton = document.getElementById(
+          "mobile-close-button",
+        );
+        const mobileOverlay = document.getElementById("nav-mobile-overlay");
+        const mobileLinks = document.querySelectorAll(".nav-mobile-link");
 
-      // Toggle mobile menu
-      mobileMenuButton.addEventListener("click", function () {
-        if (mobileOverlay.classList.contains("active")) {
-          closeMobileMenu();
-        } else {
-          mobileOverlay.classList.add("active");
-          document.body.style.overflow = "hidden";
-        }
-      });
-
-      // Close mobile menu
-      function closeMobileMenu() {
-        mobileOverlay.classList.remove("active");
-        document.body.style.overflow = "";
-      }
-
-      mobileCloseButton.addEventListener("click", closeMobileMenu);
-      mobileOverlay.addEventListener("click", function (e) {
-        if (e.target === mobileOverlay) {
-          closeMobileMenu();
-        }
-      });
-
-      // Close mobile menu when clicking on a link
-      mobileLinks.forEach((link) => {
-        link.addEventListener("click", closeMobileMenu);
-      });
-
-      // Desktop navigation dynamic behavior
-      const navBrandTitle = document.getElementById("nav-brand-title");
-      const navLinks = document.getElementById("nav-links");
-      const splashSection = document.getElementById("splash");
-
-      function updateNavigation() {
-        if (window.innerWidth >= 1024) { // 64rem = 1024px
-          const splashRect = splashSection.getBoundingClientRect();
-          const isSplashVisible = splashRect.bottom > 0 && splashRect.top < window.innerHeight;
-
-          if (isSplashVisible) {
-            // Hide brand title, keep navigation links visible
-            navBrandTitle.style.opacity = "0";
-            navBrandTitle.style.transform = "translateY(-20px)";
-            navLinks.style.transform = "translateY(0)";
+        // Toggle mobile menu
+        mobileMenuButton.addEventListener("click", function () {
+          if (mobileOverlay.classList.contains("active")) {
+            closeMobileMenu();
           } else {
-            // Show brand title, push navigation links down
-            navBrandTitle.style.opacity = "1";
-            navBrandTitle.style.transform = "translateY(0)";
-            navLinks.style.transform = "translateY(40px)";
+            mobileOverlay.classList.add("active");
+            document.body.style.overflow = "hidden";
+          }
+        });
+
+        // Close mobile menu
+        function closeMobileMenu() {
+          mobileOverlay.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+        mobileCloseButton.addEventListener("click", closeMobileMenu);
+        mobileOverlay.addEventListener("click", function (e) {
+          if (e.target === mobileOverlay) {
+            closeMobileMenu();
+          }
+        });
+
+        // Close mobile menu when clicking on a link
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", closeMobileMenu);
+        });
+
+        // Desktop navigation dynamic behavior
+        const navBrandTitle = document.getElementById("nav-brand-title");
+        const navLinks = document.getElementById("nav-links");
+        const splashSection = document.getElementById("splash");
+
+        function updateNavigation() {
+          if (window.innerWidth >= 1024) {
+            // 64rem = 1024px
+            const splashRect = splashSection.getBoundingClientRect();
+            const isSplashVisible =
+              splashRect.bottom > 0 && splashRect.top < window.innerHeight;
+
+            if (isSplashVisible) {
+              // Hide brand title, keep navigation links visible
+              navBrandTitle.style.opacity = "0";
+              navBrandTitle.style.transform = "translateY(-20px)";
+              navLinks.style.transform = "translateY(0)";
+            } else {
+              // Show brand title, push navigation links down
+              navBrandTitle.style.opacity = "1";
+              navBrandTitle.style.transform = "translateY(0)";
+              navLinks.style.transform = "translateY(40px)";
+            }
           }
         }
-      }
 
-      // Initial call
-      updateNavigation();
+        // Initial call
+        updateNavigation();
 
-      // Update on scroll
-      window.addEventListener("scroll", updateNavigation);
-      window.addEventListener("resize", updateNavigation);
-    });
-  </script>
-</body>
-
+        // Update on scroll
+        window.addEventListener("scroll", updateNavigation);
+        window.addEventListener("resize", updateNavigation);
+      });
+    </script>
+  </body>
 </html>

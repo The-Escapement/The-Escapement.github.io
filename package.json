@@ -2,17 +2,21 @@
   "name": "the-escapement",
   "version": "1.0.0",
   "scripts": {
-    "build:css": "tailwindcss -i src/tailwind.css -o dist/css/style.css --minify",
+    "build:css": "postcss src/styles.css -o dist/css/style.css",
     "build:public": "cpy 'public/**/*' 'dist' --cwd=.",
     "build": "npm run build:css && npm run build:public",
-    "watch:css": "tailwindcss -i src/tailwind.css -o dist/css/style.css --watch",
+    "watch:css": "postcss src/styles.css -o dist/css/style.css --watch",
     "watch:public": "chokidar 'public/**/*' -c 'npm run build:public'",
     "watch": "concurrently \"npm run watch:css\" \"npm run watch:public\""
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.17",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^9.2.0",
     "cpy-cli": "^5.0.0",
-    "tailwindcss": "^4.0.0"
+    "cssnano": "^6.0.3",
+    "modern-normalize": "^3.0.1",
+    "postcss": "^8.4.35",
+    "postcss-cli": "^11.0.0"
   }
 }

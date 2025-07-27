@@ -52,12 +52,14 @@ This project follows **Approach 1** where `dist/` is the integration point:
 - **Deployment** uses the complete `dist/` folder
 
 ### Build Commands:
+
 - `npm run build:css` - Compile Tailwind CSS only
 - `npm run copy-public` - Copy static files from public/ to dist/
 - `npm run build` - Full build (CSS + copy public files to dist)
 - `npm run dev` - Watch mode for development
 
 ### Build Process:
+
 1. **CSS Compilation**: Tailwind processes `src/tailwind.css` → `dist/css/style.css`
 2. **File Copying**: All files from `public/` are copied to `dist/` maintaining directory structure
 3. **Result**: `dist/` contains the complete, deployable site
