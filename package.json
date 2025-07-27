@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "scripts": {
     "build:css": "tailwindcss -i src/tailwind.css -o dist/css/style.css --minify",
+    "build:public": "cpy 'public/**/*' 'dist' --cwd=.",
+    "build": "npm run build:css && npm run build:public",
     "watch:css": "tailwindcss -i src/tailwind.css -o dist/css/style.css --watch",
-    "build": "npm run build:css && npm run copy-public",
-    "copy-public": "cpy 'public/**/*' 'dist' --cwd=.",
-    "dev": "npm run watch:css"
+    "watch:public": "cpy 'public/**/*' 'dist' --cwd=. --watch",
+    "watch": "concurrently \"npm run watch:css\" \"npm run watch:public\""
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
+    "concurrently": "^9.2.0",
     "cpy-cli": "^5.0.0",
     "postcss": "^8.4.0",
     "postcss-cli": "^10.0.0",
