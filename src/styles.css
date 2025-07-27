@@ -6,6 +6,13 @@ body {
   font-family: "Cinzel", serif;
 }
 
+/* Site wrapper to center the entire layout */
+.site-wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  position: relative;
+}
+
 /* Site Container for centering content */
 .site-container {
   margin-left: auto;
@@ -49,6 +56,15 @@ body {
   z-index: 50;
   transition: all 0.3s;
   pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .nav-sidebar {
+    left: 50%;
+    transform: translateX(
+      -600px
+    ); /* Half of max-width (1200px) minus sidebar width (280px) */
+  }
 }
 
 @media (max-width: 1023px) {
