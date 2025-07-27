@@ -277,6 +277,14 @@ body {
   color: rgb(75 85 99);
 }
 
+/* Section headings */
+h3 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
 /* Footer */
 footer {
   padding: 1rem;
@@ -298,5 +306,109 @@ footer {
 footer p {
   font-size: 0.875rem;
   color: rgb(107 114 128);
+  margin: 0;
+}
+
+/* Contact section */
+#contact {
+  padding: 4rem 2rem;
+}
+
+@media (min-width: 640px) {
+  #contact {
+    padding: 5rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #contact {
+    padding: 6rem 2rem;
+  }
+}
+
+
+
+.contact-content {
+  max-width: 40rem;
+}
+
+.subscription-section,
+.direct-email-section {
+  margin-bottom: 3rem;
+}
+
+.subscription-section p,
+.direct-email-section p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: rgb(55 65 81);
+}
+
+.subscription-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgb(209 213 219);
+  border-radius: 0.375rem;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: white;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgb(59 130 246);
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+}
+
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(17 24 39);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.submit-button:hover {
+  background-color: rgb(31 41 55);
+}
+
+.submit-button:disabled {
+  background-color: rgb(156 163 175);
+  cursor: not-allowed;
+}
+
+.email-link {
+  color: rgb(59 130 246);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.email-link:hover {
+  color: rgb(37 99 235);
+  text-decoration: underline;
+}
+
+.direct-email-section p {
+  font-size: 1.125rem;
+  color: rgb(75 85 99);
   margin: 0;
 }
