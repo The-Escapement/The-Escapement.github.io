@@ -2,12 +2,14 @@
   "name": "the-escapement",
   "version": "1.0.0",
   "scripts": {
-    "build:css": "postcss src/styles.css -o dist/css/style.css",
+    "build:css": "postcss src/css/styles.css -o dist/css/style.css",
+    "build:ts": "tsc",
     "build:public": "cpy 'public/**/*' 'dist' --cwd=.",
-    "build": "npm run build:css && npm run build:public",
-    "watch:css": "postcss src/styles.css -o dist/css/style.css --watch",
+    "build": "npm run build:css && npm run build:ts && npm run build:public",
+    "watch:css": "postcss src/css/styles.css -o dist/css/style.css --watch",
+    "watch:ts": "tsc --watch",
     "watch:public": "chokidar 'public/**/*' -c 'npm run build:public'",
-    "watch": "concurrently \"npm run watch:css\" \"npm run watch:public\""
+    "watch": "concurrently \"npm run watch:css\" \"npm run watch:ts\" \"npm run watch:public\""
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
@@ -17,6 +19,7 @@
     "cssnano": "^6.0.3",
     "modern-normalize": "^3.0.1",
     "postcss": "^8.4.35",
-    "postcss-cli": "^11.0.0"
+    "postcss-cli": "^11.0.0",
+    "typescript": "^5.3.3"
   }
 }
