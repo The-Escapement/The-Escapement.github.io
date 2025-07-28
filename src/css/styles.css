@@ -313,6 +313,86 @@ h3 {
   margin: 0;
 }
 
+/* Medallions */
+.medallions-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  max-width: 100%;
+}
+
+.medallion-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.medallion {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  border: 3px solid var(--color-accent);
+  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.medallion:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(234, 179, 8, 0.5);
+}
+
+.medallion img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.medallion:hover img {
+  filter: grayscale(80%);
+}
+
+.medallion-caption {
+  font-size: 0.75rem;
+  color: var(--color-text-primary);
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.2;
+  word-break: break-word;
+  max-width: 100px;
+  transition: color 0.3s ease;
+}
+
+.medallion-wrapper:hover .medallion-caption {
+  color: var(--color-accent);
+}
+
+.medallion-fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--color-accent),
+    var(--color-accent-hover)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-background);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
 /* Form elements reset */
 form {
   margin: 0;
