@@ -2,14 +2,11 @@
   "name": "the-escapement",
   "version": "1.0.0",
   "scripts": {
+    "build": "vite build",
     "build:css": "postcss src/css/styles.css -o dist/css/style.css",
-    "build:ts": "tsc",
-    "build:public": "cpy 'public/**/*' 'dist' --cwd=.",
-    "build": "npm run build:css && npm run build:ts && npm run build:public",
+    "watch": "vite",
     "watch:css": "postcss src/css/styles.css -o dist/css/style.css --watch",
-    "watch:ts": "tsc --watch",
-    "watch:public": "chokidar 'public/**/*' -c 'npm run build:public'",
-    "watch": "concurrently \"npm run watch:css\" \"npm run watch:ts\" \"npm run watch:public\""
+    "preview": "vite preview"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
@@ -20,6 +17,8 @@
     "modern-normalize": "^3.0.1",
     "postcss": "^8.4.35",
     "postcss-cli": "^11.0.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vite": "^7.0.6",
+    "@vitejs/plugin-legacy": "^7.1.0"
   }
 }
