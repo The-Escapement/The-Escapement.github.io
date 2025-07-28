@@ -26,17 +26,35 @@
       ];
       perSystem =
         { nixpkgs, config, ... }:
+        let
+          staticSite = nixpkgs.unstable.stdenv.mkDerivation (finalAttrs: {
+            pname = "the-escapement";
+            version = "1.0.0";
+            src = ./.;
+            nativeBuildInputs = [
+              nixpkgs.unstable.nodejs_24
+              nixpkgs.unstable.pnpm_10.configHook
+            ];
+            pnpmDeps = nixpkgs.unstable.pnpm_10.fetchDeps {
+              inherit (finalAttrs) pname version src;
+              fetcherVersion = 2;
+              hash = "sha256-DDDwwfxNPddCvl1VuY0W85VcM3cDEGpN88SiQYdfmdM=";
+            };
+            buildPhase = ''npm run build '';
+            installPhase = ''cp -r dist $out '';
+            dontPatchShebangs = true;
+            dontStrip = true;
+          });
+        in
         {
           legacyPackages.nixpkgs = nixpkgs;
+          packages.default = staticSite;
           devshells.default.packages = [
             config.treefmt.build.wrapper
             nixpkgs.unstable.instaloader
             nixpkgs.unstable.nodejs_24
-            nixpkgs.unstable.pnpm_10
             nixpkgs.unstable.prettier
-            nixpkgs.unstable.tailwindcss_4
-            nixpkgs.unstable.tailwindcss-language-server
-            nixpkgs.unstable.typescript
+            nixpkgs.unstable.pnpm_10
             nixpkgs.unstable.typescript-language-server
           ];
           treefmt.pkgs = nixpkgs.unstable;
