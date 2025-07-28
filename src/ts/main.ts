@@ -77,15 +77,21 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize", updateNavigation);
 
   // Contact form functionality
-  const subscriptionForm = document.getElementById("subscription-form") as HTMLFormElement;
+  const subscriptionForm = document.getElementById(
+    "subscription-form",
+  ) as HTMLFormElement;
 
   if (subscriptionForm) {
     subscriptionForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const fullNameInput = document.getElementById("full-name") as HTMLInputElement;
+      const fullNameInput = document.getElementById(
+        "full-name",
+      ) as HTMLInputElement;
       const emailInput = document.getElementById("email") as HTMLInputElement;
-      const submitButton = subscriptionForm.querySelector(".submit-button") as HTMLButtonElement;
+      const submitButton = subscriptionForm.querySelector(
+        ".submit-button",
+      ) as HTMLButtonElement;
 
       if (!fullNameInput || !emailInput || !submitButton) {
         console.error("Required form elements not found");
