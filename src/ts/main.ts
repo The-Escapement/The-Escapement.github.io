@@ -38,12 +38,63 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", closeMobileMenu);
   });
 
+  // Custom smooth scrolling for navigation links
+  const scrollLinks = document.querySelectorAll('a[href^="#"]');
+
+  scrollLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const targetId = (link as HTMLAnchorElement).getAttribute("href");
+      if (!targetId) return;
+
+      const targetElement = document.querySelector(targetId);
+      if (!targetElement) return;
+
+      // Close mobile menu if open
+      if (mobileOverlay!.classList.contains("active")) {
+        closeMobileMenu();
+      }
+
+      // Custom smooth scroll with easing
+      smoothScrollTo(targetElement, 1200); // 1.2 seconds duration
+    });
+  });
+
+  // Custom smooth scroll function with easing
+  function smoothScrollTo(target: Element, duration: number): void {
+    const start = window.pageYOffset;
+    const targetPosition = target.getBoundingClientRect().top + start;
+    const distance = targetPosition - start;
+    let startTime: number | null = null;
+
+    function animation(currentTime: number): void {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+
+      // Easing function: easeInOutCubic
+      const ease =
+        progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+      window.scrollTo(0, start + distance * ease);
+
+      if (progress < 1) {
+        requestAnimationFrame(animation);
+      }
+    }
+
+    requestAnimationFrame(animation);
+  }
+
   // Desktop navigation dynamic behavior
   const navBrandTitle = document.getElementById("nav-brand-title");
-  const navLinks = document.getElementById("nav-links");
+  const desktopNavLinks = document.getElementById("nav-links");
   const splashSection = document.getElementById("splash");
 
-  if (!navBrandTitle || !navLinks || !splashSection) {
+  if (!navBrandTitle || !desktopNavLinks || !splashSection) {
     console.error("Required navigation elements not found");
     return;
   }
@@ -59,12 +110,12 @@ document.addEventListener("DOMContentLoaded", function () {
         // Hide brand title, keep navigation links visible
         navBrandTitle!.style.opacity = "0";
         navBrandTitle!.style.transform = "translateY(-20px)";
-        navLinks!.style.transform = "translateY(0)";
+        desktopNavLinks!.style.transform = "translateY(0)";
       } else {
         // Show brand title, push navigation links down
         navBrandTitle!.style.opacity = "1";
         navBrandTitle!.style.transform = "translateY(0)";
-        navLinks!.style.transform = "translateY(40px)";
+        desktopNavLinks!.style.transform = "translateY(40px)";
       }
     }
   }
