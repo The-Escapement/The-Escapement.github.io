@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Custom smooth scroll with easing
-      smoothScrollTo(targetElement, 1200); // 1.2 seconds duration
+      smoothScrollTo(targetElement, 800); // 0.8 seconds duration
     });
   });
 
