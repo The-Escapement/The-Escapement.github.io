@@ -4,6 +4,7 @@
 /* CSS Custom Properties for color scheme */
 :root {
   --color-background: rgb(51 65 85); /* slate-700 */
+  --color-background-end: rgb(6 78 59); /* emerald-800 (darker peacock green) */
   --color-text-primary: rgb(245 245 244); /* stone-100 (platinum) */
   --color-text-secondary: rgb(214 211 209); /* stone-300 (lighter platinum) */
   --color-accent: rgb(234 179 8); /* amber-500 (gold) */
@@ -20,8 +21,14 @@ html {
 
 body {
   font-family: "Cinzel", serif;
-  background-color: var(--color-background);
+  background: linear-gradient(
+    135deg,
+    var(--color-background) 0%,
+    var(--color-background-end) 100%
+  );
+  background-attachment: fixed;
   color: var(--color-text-primary);
+  min-height: 100vh;
 }
 
 /* Site wrapper to center the entire layout */
