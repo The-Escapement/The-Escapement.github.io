@@ -27,7 +27,7 @@
       perSystem =
         { nixpkgs, config, ... }:
         let
-          staticSite = nixpkgs.unstable.stdenv.mkDerivation (finalAttrs: {
+          site = nixpkgs.unstable.stdenv.mkDerivation (finalAttrs: {
             pname = "the-escapement";
             version = "1.0.0";
             src = ./.;
@@ -48,7 +48,8 @@
         in
         {
           legacyPackages.nixpkgs = nixpkgs;
-          packages.default = staticSite;
+          packages.site = site;
+          packages.default = site;
           devshells.default.packages = [
             config.treefmt.build.wrapper
             nixpkgs.unstable.instaloader

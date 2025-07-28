@@ -316,7 +316,7 @@ h3 {
 /* Medallions */
 .medallions-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 2rem;
   margin: 2rem 0;
   max-width: 100%;
@@ -330,8 +330,8 @@ h3 {
 }
 
 .medallion {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
@@ -367,7 +367,7 @@ h3 {
   font-weight: 500;
   line-height: 1.2;
   word-break: break-word;
-  max-width: 100px;
+  max-width: 120px;
   transition: color 0.3s ease;
 }
 
