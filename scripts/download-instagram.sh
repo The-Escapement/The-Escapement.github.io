@@ -87,12 +87,12 @@ for handle in $HANDLES; do
     else
         echo "❌ Failed to download @$handle"
         # If we get rate limited, wait longer before the next attempt
-        echo "⏳ Rate limited - waiting 600 seconds before next request..."
-        sleep 60
+        #echo "⏳ Rate limited - waiting 60 seconds before next request..."
+        #sleep 60
     fi
 
     # Add a longer delay between requests to be more respectful
-    echo "⏳ Waiting 10 seconds before next request..."
+    echo "⏳ Waiting 60 seconds before next request..."
     sleep 60
 done
 
