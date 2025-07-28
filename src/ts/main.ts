@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       closeMobileMenu();
     } else {
       mobileOverlay!.classList.add("active");
+      mobileMenuButton!.classList.add("active");
       document.body.style.overflow = "hidden";
     }
   });
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Close mobile menu
   function closeMobileMenu(): void {
     mobileOverlay!.classList.remove("active");
+    mobileMenuButton!.classList.remove("active");
     document.body.style.overflow = "";
   }
 
