@@ -1,17 +1,40 @@
 /* Import modern-normalize for consistent cross-browser styling */
 @import "modern-normalize";
 
-/* CSS Custom Properties for color scheme */
+/* Color Palette */
 :root {
-  --color-background: rgb(51 65 85); /* slate-700 */
-  --color-background-end: rgb(6 78 59); /* emerald-800 (darker peacock green) */
-  --color-text-primary: rgb(245 245 244); /* stone-100 (platinum) */
-  --color-text-secondary: rgb(214 211 209); /* stone-300 (lighter platinum) */
-  --color-accent: rgb(234 179 8); /* amber-500 (gold) */
-  --color-accent-hover: rgb(245 158 11); /* amber-600 (darker gold) */
-  --color-input-bg: rgb(71 85 105); /* slate-600 */
-  --color-input-border: rgb(71 85 105); /* slate-600 */
-  --color-button-disabled: rgb(100 116 139); /* slate-500 */
+
+  --palette-black: #020202;
+  --palette-gray-dark: #374151;
+  --palette-gray: #4c4c4c;
+  --palette-gray-medium: #6b7280;
+  --palette-silver: #c0c0c0;
+  --palette-platinum-light: #d6d3d1;
+  --palette-platinum: #f5f5f4;
+
+  --palette-slate: #475569;
+  --palette-slate-light: #64748b;
+
+  --palette-gold: #eab308;
+  --palette-gold-transparent: #eab3081a;
+  --palette-gold-dark: #f59e0b;
+}
+
+/* Semantic Colors */
+:root {
+  --color-background: var(--palette-black);
+  --color-background-end: var(--palette-gray);
+  --color-text-primary: var(--palette-platinum);
+  --color-text-secondary: var(--palette-platinum-light);
+  --color-accent: var(--palette-gold);
+  --color-accent-hover: var(--palette-gold-dark);
+  --color-input-bg: var(--palette-slate);
+  --color-input-border: var(--palette-slate);
+  --color-button-disabled: var(--palette-slate-light);
+  --color-silver: var(--palette-silver);
+  --color-gray-500: var(--palette-gray-medium);
+  --color-gray-700: var(--palette-gray-dark);
+  --color-accent-transparent: var(--palette-gold-transparent);
 }
 
 /* Base styles with Cinzel */
@@ -174,7 +197,7 @@ body {
   display: block;
   width: 100%;
   height: 0.125rem;
-  background-color: rgb(192 192 192); /* silver */
+  background-color: var(--color-silver);
   transition: all 0.3s;
 }
 
@@ -234,13 +257,13 @@ body {
 .nav-mobile-close {
   background-color: transparent;
   border: none;
-  color: rgb(107 114 128);
+  color: var(--color-gray-500);
   cursor: pointer;
   padding: 0.25rem;
 }
 
 .nav-mobile-close:hover {
-  color: rgb(55 65 81);
+  color: var(--color-gray-700);
 }
 
 .nav-mobile-links {
@@ -490,7 +513,7 @@ footer p {
 .form-input:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgb(234 179 8 / 0.1);
+  box-shadow: 0 0 0 3px var(--color-accent-transparent);
 }
 
 .submit-button {
