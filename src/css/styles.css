@@ -17,6 +17,7 @@
 /* Base styles with Cinzel */
 html {
   scroll-behavior: smooth;
+  background: var(--color-background);
 }
 
 body {
@@ -29,6 +30,8 @@ body {
   background-attachment: fixed;
   color: var(--color-text-primary);
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 /* Site wrapper to center the entire layout */
