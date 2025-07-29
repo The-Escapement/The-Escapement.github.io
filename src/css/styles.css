@@ -164,12 +164,14 @@ body.menu-open {
 }
 
 .nav-logo {
-  height: 10rem;
+  height: 6rem;
   width: auto;
   filter: brightness(0) invert(1);
   opacity: 0.9;
   transition: opacity 0.3s ease;
   margin-bottom: -2rem;
+  margin-right: -1rem;
+  text-align: right;
 }
 
 .nav-brand-title:hover .nav-logo {
@@ -407,7 +409,7 @@ body.menu-open {
 }
 
 .splash-logo {
-  margin-bottom: -3rem;
+  margin-bottom: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
