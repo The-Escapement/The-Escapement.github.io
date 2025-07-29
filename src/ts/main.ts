@@ -5,9 +5,9 @@ import { SmoothScroller } from './scrolling.js';
 import { DesktopNavigation } from './navigation.js';
 
 document.addEventListener("DOMContentLoaded", function () {
-  const mobileMenu = new MobileMenu();
-  new EmailSubscription();
-  new TeamsManager();
-  new SmoothScroller(mobileMenu);
   new DesktopNavigation();
+  const mobileMenu = new MobileMenu();
+  new SmoothScroller(mobileMenu);
+  new TeamsManager();
+  new EmailSubscription();
 });
