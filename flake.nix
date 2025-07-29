@@ -38,9 +38,10 @@
             pnpmDeps = nixpkgs.unstable.pnpm_10.fetchDeps {
               inherit (finalAttrs) pname version src;
               fetcherVersion = 2;
-              hash = "sha256-ENb6TrE/tDY4FI6+wrGgsaQlbpQei9MKl7wT2ka717A=";
+              hash = "sha256-atAbCuqGcwUJDkHSWqWIFW+5srI+otPt9bh/I+x0UYo=";
             };
-            buildPhase = ''npm run build '';
+            buildPhase = ''pnpm run build '';
+            checkPhase = ''pnpm run lint '';
             installPhase = ''cp -r dist $out '';
             dontPatchShebangs = true;
             dontStrip = true;
@@ -65,6 +66,9 @@
             nixf-diagnose.enable = true;
             prettier.enable = true;
           };
+          treefmt.settings.global.excludes = [
+            "pnpm-lock.yaml"
+          ];
         };
     };
 }
