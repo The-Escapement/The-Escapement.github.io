@@ -118,7 +118,7 @@ body.menu-open {
 }
 
 .nav-top-container {
-  max-width: 1200px;
+  max-width: 60rem;
   margin: 0 auto;
   height: 100%;
   display: flex;
