@@ -31,7 +31,7 @@ export class SmoothScroller {
         }
 
         // Custom smooth scroll with easing
-        this.smoothScrollTo(targetElement, 800); // 0.8 seconds duration
+        this.smoothScrollTo(targetElement, 500); // 0.5 seconds duration
       });
     });
   }
