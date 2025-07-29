@@ -1,8 +1,12 @@
 import { MobileMenu } from './mobile.js';
+import { EmailSubscription } from './email.js';
 
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize mobile menu
   const mobileMenu = new MobileMenu();
+
+  // Initialize email subscription
+  const emailSubscription = new EmailSubscription();
 
   // Custom smooth scrolling for navigation links
   const scrollLinks = document.querySelectorAll('a[href^="#"]');
@@ -92,57 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Update on scroll
   window.addEventListener("scroll", updateNavigation);
   window.addEventListener("resize", updateNavigation);
-
-  // Contact form functionality
-  const subscriptionForm = document.getElementById(
-    "subscription-form",
-  ) as HTMLFormElement;
-
-  if (subscriptionForm) {
-    subscriptionForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const fullNameInput = document.getElementById(
-        "full-name",
-      ) as HTMLInputElement;
-      const emailInput = document.getElementById("email") as HTMLInputElement;
-      const submitButton = subscriptionForm.querySelector(
-        ".submit-button",
-      ) as HTMLButtonElement;
-
-      if (!fullNameInput || !emailInput || !submitButton) {
-        console.error("Required form elements not found");
-        return;
-      }
-
-      const fullName = fullNameInput.value.trim();
-      const email = emailInput.value.trim();
-
-      if (!fullName || !email) {
-        alert("Please fill in all fields");
-        return;
-      }
-
-      // Disable submit button to prevent double submission
-      submitButton.disabled = true;
-      submitButton.textContent = "Sending...";
-
-      // Create mailto link with subscription details
-      const subject = "SUBSCRIBE";
-      const body = `Name: ${fullName}\nEmail: ${email}\n\nPlease add me to your mailing list for updates about The Escapement.`;
-      const mailtoLink = `mailto:info@theescapement.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      // Open default email client
-      window.location.href = mailtoLink;
-
-      // Reset form and button after a short delay
-      setTimeout(() => {
-        subscriptionForm.reset();
-        submitButton.disabled = false;
-        submitButton.textContent = "Subscribe";
-      }, 1000);
-    });
-  }
 
   // Team and Partners data
   const teamHandles = [
