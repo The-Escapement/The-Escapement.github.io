@@ -5,13 +5,13 @@ export class MobileMenu {
   private readonly mobileLinks: NodeListOf<Element>;
 
   constructor() {
-    const menuButton = document.getElementById("mobile-menu-button");
-    const closeButton = document.getElementById("mobile-close-button");
-    const overlay = document.getElementById("nav-mobile-overlay");
+    const menuButton = document.querySelector("#mobile-menu-button") as HTMLElement | undefined;
+    const closeButton = document.querySelector("#mobile-close-button") as HTMLElement | undefined;
+    const overlay = document.querySelector("#nav-mobile-overlay") as HTMLElement | undefined;
 
-    this.mobileMenuButton = menuButton ?? undefined;
-    this.mobileCloseButton = closeButton ?? undefined;
-    this.mobileOverlay = overlay ?? undefined;
+    this.mobileMenuButton = menuButton;
+    this.mobileCloseButton = closeButton;
+    this.mobileOverlay = overlay;
     this.mobileLinks = document.querySelectorAll(".nav-mobile-link");
 
     this.init();
@@ -56,18 +56,18 @@ export class MobileMenu {
     });
 
     // Close when clicking overlay
-    this.mobileOverlay!.addEventListener("click", (e) => {
-      if (e.target === this.mobileOverlay) {
+    this.mobileOverlay!.addEventListener("click", (event) => {
+      if (event.target === this.mobileOverlay) {
         this.closeMobileMenu();
       }
     });
 
     // Close mobile menu when clicking on a link
-    this.mobileLinks.forEach((link) => {
+    for (const link of this.mobileLinks) {
       link.addEventListener("click", () => {
         this.closeMobileMenu();
       });
-    });
+    }
   }
 
   private openMobileMenu(): void {

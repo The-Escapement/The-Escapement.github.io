@@ -1,13 +1,16 @@
 import js from "@eslint/js";
 import htmlPlugin from "eslint-plugin-html";
 import securityPlugin from "eslint-plugin-security";
-import xo from "eslint-config-xo";
-import xoTypescript from "eslint-config-xo-typescript";
+import xo from "xo";
 
 export default [
   js.configs.recommended,
-  ...xo,
-  ...xoTypescript,
+  ...xo.xoToEslintConfig([
+    {
+      space: true,
+      prettier: 'compat'
+    }
+  ]),
   {
     files: ["**/*.ts"],
     languageOptions: {

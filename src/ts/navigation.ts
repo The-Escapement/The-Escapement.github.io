@@ -4,9 +4,9 @@ export class DesktopNavigation {
   private readonly splashSection: HTMLElement | undefined;
 
   constructor() {
-    this.navBrandTitle = document.getElementById("nav-brand-title");
-    this.desktopNavLinks = document.getElementById("nav-links");
-    this.splashSection = document.getElementById("splash");
+    this.navBrandTitle = document.querySelector("#nav-brand-title") as HTMLElement | undefined;
+    this.desktopNavLinks = document.querySelector("#nav-links") as HTMLElement | undefined;
+    this.splashSection = document.querySelector("#splash") as HTMLElement | undefined;
 
     this.init();
   }

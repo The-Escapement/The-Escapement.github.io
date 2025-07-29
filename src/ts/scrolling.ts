@@ -13,9 +13,9 @@ export class SmoothScroller {
   }
 
   private setupEventListeners(): void {
-    this.scrollLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
+    for (const link of this.scrollLinks) {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
 
         const targetId =
           link instanceof HTMLAnchorElement ? link.getAttribute("href") : null;
@@ -36,7 +36,7 @@ export class SmoothScroller {
         // Custom smooth scroll with easing
         this.smoothScrollTo(targetElement, 500); // 0.5 seconds duration
       });
-    });
+    }
   }
 
   private smoothScrollTo(target: Element, duration: number): void {

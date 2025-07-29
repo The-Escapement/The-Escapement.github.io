@@ -5,7 +5,7 @@ export class EmailSubscription {
   private submitButton: HTMLButtonElement | undefined;
 
   constructor() {
-    const form = document.getElementById("subscription-form");
+    const form = document.querySelector("#subscription-form");
     if (form instanceof HTMLFormElement) {
       this.subscriptionForm = form;
       this.init();
@@ -20,8 +20,8 @@ export class EmailSubscription {
       return;
     }
 
-    const fullNameElement = document.getElementById("full-name");
-    const emailElement = document.getElementById("email");
+    const fullNameElement = document.querySelector("#full-name");
+    const emailElement = document.querySelector("#email");
     const submitElement = this.subscriptionForm.querySelector(".submit-button");
 
     if (fullNameElement instanceof HTMLInputElement) {
@@ -45,8 +45,8 @@ export class EmailSubscription {
   }
 
   private setupEventListeners(): void {
-    this.subscriptionForm!.addEventListener("submit", (e) => {
-      e.preventDefault();
+    this.subscriptionForm!.addEventListener("submit", (event) => {
+      event.preventDefault();
       this.handleSubmit();
     });
   }
@@ -70,7 +70,7 @@ export class EmailSubscription {
     const mailtoLink = `mailto:info@theescapement.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     // Open default email client
-    window.location.href = mailtoLink;
+    globalThis.location.href = mailtoLink;
 
     // Reset form and button after a short delay
     setTimeout(() => {

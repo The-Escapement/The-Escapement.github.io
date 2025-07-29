@@ -44,12 +44,12 @@ export class TeamsManager {
   }
 
   private createMedallions(handles: string[], containerId: string): void {
-    const container = document.getElementById(containerId);
+    const container = document.querySelector(`#${containerId}`);
     if (!container) {
       return;
     }
 
-    handles.forEach((handle) => {
+    for (const handle of handles) {
       const medallionWrapper = document.createElement("div");
       medallionWrapper.className = "medallion-wrapper clickable";
 
@@ -61,13 +61,13 @@ export class TeamsManager {
       img.alt = `@${handle}`;
 
       // Handle image load error with fallback
-      img.onerror = () => {
+      img.addEventListener("error", () => {
         medallion.innerHTML = `
           <div class="medallion-fallback">
             @${handle}
           </div>
         `;
-      };
+      });
 
       const caption = document.createElement("div");
       caption.className = "medallion-caption";
@@ -78,10 +78,10 @@ export class TeamsManager {
         window.open(`https://instagram.com/${handle}`, "_blank");
       });
 
-      medallion.appendChild(img);
-      medallionWrapper.appendChild(medallion);
-      medallionWrapper.appendChild(caption);
-      container.appendChild(medallionWrapper);
-    });
+      medallion.append(img);
+      medallionWrapper.append(medallion);
+      medallionWrapper.append(caption);
+      container.append(medallionWrapper);
+    }
   }
 }
