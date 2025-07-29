@@ -1,9 +1,13 @@
 export class DesktopNavigation {
+  private readonly navTopTitle: HTMLElement | undefined;
   private readonly navBrandTitle: HTMLElement | undefined;
   private readonly desktopNavLinks: HTMLElement | undefined;
   private readonly splashSection: HTMLElement | undefined;
 
   constructor() {
+    this.navTopTitle = document.querySelector("#nav-top-title") as
+      | HTMLElement
+      | undefined;
     this.navBrandTitle = document.querySelector("#nav-brand-title") as
       | HTMLElement
       | undefined;
@@ -18,7 +22,7 @@ export class DesktopNavigation {
   }
 
   private init(): void {
-    if (!this.navBrandTitle || !this.desktopNavLinks || !this.splashSection) {
+    if (!this.navTopTitle || !this.navBrandTitle || !this.desktopNavLinks || !this.splashSection) {
       console.error("Required navigation elements not found");
       return;
     }
@@ -41,11 +45,20 @@ export class DesktopNavigation {
 
   private updateNavigation(): void {
     if (window.innerWidth >= 1024) {
-      // 64rem = 1024px
+      // Desktop navigation logic
       const splashRect = this.splashSection!.getBoundingClientRect();
-      // Show brand title when splash section is more than 20% scrolled out of view
+      // Show top nav logo when splash section is more than 20% scrolled out of view
       const isSplashVisible = splashRect.bottom > window.innerHeight * 0.2;
 
+      if (isSplashVisible) {
+        // Hide top nav logo
+        this.navTopTitle!.classList.remove("visible");
+      } else {
+        // Show top nav logo
+        this.navTopTitle!.classList.add("visible");
+      }
+
+      // Mobile sidebar navigation logic (for reference, but hidden on desktop)
       if (isSplashVisible) {
         // Hide brand title, keep navigation links visible
         this.navBrandTitle!.classList.remove("visible");
