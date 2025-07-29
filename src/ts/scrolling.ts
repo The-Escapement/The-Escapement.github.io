@@ -1,4 +1,4 @@
-import { MobileMenu } from './mobile';
+import { MobileMenu } from "./mobile";
 
 export class SmoothScroller {
   private scrollLinks: NodeListOf<Element>;

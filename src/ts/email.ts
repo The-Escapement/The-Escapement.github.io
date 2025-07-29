@@ -5,7 +5,9 @@ export class EmailSubscription {
   private submitButton: HTMLButtonElement | null = null;
 
   constructor() {
-    this.subscriptionForm = document.getElementById("subscription-form") as HTMLFormElement;
+    this.subscriptionForm = document.getElementById(
+      "subscription-form",
+    ) as HTMLFormElement;
     this.init();
   }
 
@@ -15,9 +17,13 @@ export class EmailSubscription {
       return;
     }
 
-    this.fullNameInput = document.getElementById("full-name") as HTMLInputElement;
+    this.fullNameInput = document.getElementById(
+      "full-name",
+    ) as HTMLInputElement;
     this.emailInput = document.getElementById("email") as HTMLInputElement;
-    this.submitButton = this.subscriptionForm.querySelector(".submit-button") as HTMLButtonElement;
+    this.submitButton = this.subscriptionForm.querySelector(
+      ".submit-button",
+    ) as HTMLButtonElement;
 
     if (!this.fullNameInput || !this.emailInput || !this.submitButton) {
       console.error("Required form elements not found");

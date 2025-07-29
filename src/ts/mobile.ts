@@ -14,7 +14,11 @@ export class MobileMenu {
   }
 
   private init(): void {
-    if (!this.mobileMenuButton || !this.mobileCloseButton || !this.mobileOverlay) {
+    if (
+      !this.mobileMenuButton ||
+      !this.mobileCloseButton ||
+      !this.mobileOverlay
+    ) {
       console.error("Required mobile menu elements not found");
       return;
     }
