@@ -8,7 +8,7 @@
     "watch": "vite",
     "watch:css": "postcss src/css/styles.css -o dist/css/style.css --watch",
     "preview": "vite preview",
-    "lint:es": "eslint src/**/*.{ts,html}",
+    "lint:es": "eslint src/**/*.{ts,html} --max-warnings=0",
     "lint:html": "htmlhint src/**/*.html",
     "lint": "pnpm run lint:es && pnpm run lint:html"
   },
