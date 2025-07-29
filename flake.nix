@@ -38,7 +38,7 @@
             pnpmDeps = nixpkgs.unstable.pnpm_10.fetchDeps {
               inherit (finalAttrs) pname version src;
               fetcherVersion = 2;
-              hash = "sha256-DDDwwfxNPddCvl1VuY0W85VcM3cDEGpN88SiQYdfmdM=";
+              hash = "sha256-ENb6TrE/tDY4FI6+wrGgsaQlbpQei9MKl7wT2ka717A=";
             };
             buildPhase = ''npm run build '';
             installPhase = ''cp -r dist $out '';
