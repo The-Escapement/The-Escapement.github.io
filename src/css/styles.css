@@ -161,6 +161,18 @@ body.menu-open {
   transform: translateY(-20px);
 }
 
+.nav-logo {
+  height: 10rem;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.nav-brand-title:hover .nav-logo {
+  opacity: 1;
+}
+
 .nav-links {
   display: flex;
   flex-direction: column;
@@ -381,7 +393,7 @@ body.menu-open {
 }
 
 .splash-logo {
-  margin-bottom: 1rem;
+  margin-bottom: -3rem;
   display: flex;
   justify-content: center;
   align-items: center;
