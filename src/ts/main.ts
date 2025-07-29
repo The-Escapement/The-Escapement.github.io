@@ -1,44 +1,8 @@
+import { MobileMenu } from './mobile.js';
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Mobile menu functionality
-  const mobileMenuButton = document.getElementById("mobile-menu-button");
-  const mobileCloseButton = document.getElementById("mobile-close-button");
-  const mobileOverlay = document.getElementById("nav-mobile-overlay");
-  const mobileLinks = document.querySelectorAll(".nav-mobile-link");
-
-  if (!mobileMenuButton || !mobileCloseButton || !mobileOverlay) {
-    console.error("Required mobile menu elements not found");
-    return;
-  }
-
-  // Toggle mobile menu
-  mobileMenuButton.addEventListener("click", function () {
-    if (mobileOverlay!.classList.contains("active")) {
-      closeMobileMenu();
-    } else {
-      mobileOverlay!.classList.add("active");
-      mobileMenuButton!.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
-  });
-
-  // Close mobile menu
-  function closeMobileMenu(): void {
-    mobileOverlay!.classList.remove("active");
-    mobileMenuButton!.classList.remove("active");
-    document.body.style.overflow = "";
-  }
-
-  mobileCloseButton.addEventListener("click", closeMobileMenu);
-  mobileOverlay.addEventListener("click", function (e) {
-    if (e.target === mobileOverlay) {
-      closeMobileMenu();
-    }
-  });
-
-  // Close mobile menu when clicking on a link
-  mobileLinks.forEach((link) => {
-    link.addEventListener("click", closeMobileMenu);
-  });
+  // Initialize mobile menu
+  const mobileMenu = new MobileMenu();
 
   // Custom smooth scrolling for navigation links
   const scrollLinks = document.querySelectorAll('a[href^="#"]');
@@ -54,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!targetElement) return;
 
       // Close mobile menu if open
-      if (mobileOverlay!.classList.contains("active")) {
-        closeMobileMenu();
+      if (mobileMenu.isOpen()) {
+        mobileMenu.closeMobileMenu();
       }
 
       // Custom smooth scroll with easing
