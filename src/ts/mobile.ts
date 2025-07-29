@@ -55,13 +55,13 @@ export class MobileMenu {
   private openMobileMenu(): void {
     this.mobileOverlay!.classList.add("active");
     this.mobileMenuButton!.classList.add("active");
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("menu-open");
   }
 
   public closeMobileMenu(): void {
     this.mobileOverlay!.classList.remove("active");
     this.mobileMenuButton!.classList.remove("active");
-    document.body.style.overflow = "";
+    document.body.classList.remove("menu-open");
   }
 
   public isOpen(): boolean {

@@ -38,14 +38,14 @@ export class DesktopNavigation {
 
       if (isSplashVisible) {
         // Hide brand title, keep navigation links visible
-        this.navBrandTitle!.style.opacity = "0";
-        this.navBrandTitle!.style.transform = "translateY(-20px)";
-        this.desktopNavLinks!.style.transform = "translateY(0)";
+        this.navBrandTitle!.classList.remove("visible");
+        this.navBrandTitle!.classList.add("hidden");
+        this.desktopNavLinks!.classList.remove("shifted");
       } else {
         // Show brand title, push navigation links down
-        this.navBrandTitle!.style.opacity = "1";
-        this.navBrandTitle!.style.transform = "translateY(0)";
-        this.desktopNavLinks!.style.transform = "translateY(40px)";
+        this.navBrandTitle!.classList.remove("hidden");
+        this.navBrandTitle!.classList.add("visible");
+        this.desktopNavLinks!.classList.add("shifted");
       }
     }
   }

@@ -57,6 +57,11 @@ body {
   padding: 0;
 }
 
+/* Body state classes */
+body.menu-open {
+  overflow: hidden;
+}
+
 /* Site wrapper to center the entire layout */
 .site-wrapper {
   margin: 0 auto;
@@ -136,12 +141,23 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.025em;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
   transform: translateY(-20px);
   opacity: 0;
   color: var(--color-text-primary);
   text-decoration: none;
   cursor: pointer;
+}
+
+/* Navigation state classes */
+.nav-brand-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-brand-title.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
 }
 
 .nav-links {
@@ -150,6 +166,11 @@ body {
   gap: 1rem;
   transition: transform 0.3s;
   pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav-links.shifted {
+  transform: translateY(40px);
 }
 
 .nav-link {
@@ -378,6 +399,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
+  cursor: pointer;
 }
 
 .medallion {
@@ -573,4 +595,9 @@ footer p {
   font-size: 1.125rem;
   color: var(--color-text-secondary);
   margin: 0;
+}
+
+/* Interactive element classes */
+.clickable {
+  cursor: pointer;
 }

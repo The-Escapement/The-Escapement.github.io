@@ -48,7 +48,7 @@ export class TeamsManager {
 
     handles.forEach((handle) => {
       const medallionWrapper = document.createElement("div");
-      medallionWrapper.className = "medallion-wrapper";
+      medallionWrapper.className = "medallion-wrapper clickable";
 
       const medallion = document.createElement("div");
       medallion.className = "medallion";
@@ -71,7 +71,6 @@ export class TeamsManager {
       caption.textContent = `@${handle}`;
 
       // Make the entire wrapper clickable
-      medallionWrapper.style.cursor = "pointer";
       medallionWrapper.addEventListener("click", () => {
         window.open(`https://instagram.com/${handle}`, "_blank");
       });
