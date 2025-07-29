@@ -1,5 +1,5 @@
 export class TeamsManager {
-  private teamHandles = [
+  private readonly teamHandles = [
     "watchanish",
     "rjbroer",
     "wei_koh_revolution",
@@ -9,10 +9,10 @@ export class TeamsManager {
     "waitlisted",
   ];
 
-  private partnerHandles = [
-    //"Seddiqi",
+  private readonly partnerHandles = [
+    // "Seddiqi",
     "TheJourneGuy",
-    //"nicoleonardvanderhorst",
+    // "nicoleonardvanderhorst",
     "marc.gebauer",
     "SwissWatchGang",
     "nycwatchguy",
@@ -45,7 +45,9 @@ export class TeamsManager {
 
   private createMedallions(handles: string[], containerId: string): void {
     const container = document.getElementById(containerId);
-    if (!container) return;
+    if (!container) {
+      return;
+    }
 
     handles.forEach((handle) => {
       const medallionWrapper = document.createElement("div");

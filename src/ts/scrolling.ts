@@ -1,11 +1,9 @@
-import { MobileMenu } from "./mobile";
+import { type MobileMenu } from "./mobile.js";
 
 export class SmoothScroller {
-  private scrollLinks: NodeListOf<Element>;
-  private mobileMenu: MobileMenu;
+  private readonly scrollLinks: NodeListOf<Element>;
 
-  constructor(mobileMenu: MobileMenu) {
-    this.mobileMenu = mobileMenu;
+  constructor(private readonly mobileMenu: MobileMenu) {
     this.scrollLinks = document.querySelectorAll('a[href^="#"]');
     this.init();
   }
@@ -19,11 +17,16 @@ export class SmoothScroller {
       link.addEventListener("click", (e) => {
         e.preventDefault();
 
-        const targetId = (link as HTMLAnchorElement).getAttribute("href");
-        if (!targetId) return;
+        const targetId =
+          link instanceof HTMLAnchorElement ? link.getAttribute("href") : null;
+        if (!targetId) {
+          return;
+        }
 
         const targetElement = document.querySelector(targetId);
-        if (!targetElement) return;
+        if (!targetElement) {
+          return;
+        }
 
         // Close mobile menu if open
         if (this.mobileMenu.isOpen()) {
@@ -40,10 +43,11 @@ export class SmoothScroller {
     const start = window.pageYOffset;
     const targetPosition = target.getBoundingClientRect().top + start;
     const distance = targetPosition - start;
-    let startTime: number | null = null;
+    let startTime: number | undefined;
 
     const animation = (currentTime: number): void => {
-      if (startTime === null) startTime = currentTime;
+      startTime ??= currentTime;
+
       const timeElapsed = currentTime - startTime;
       const progress = Math.min(timeElapsed / duration, 1);
 
@@ -51,7 +55,7 @@ export class SmoothScroller {
       const ease =
         progress < 0.5
           ? 4 * progress * progress * progress
-          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+          : 1 - (-2 * progress + 2) ** 3 / 2;
 
       window.scrollTo(0, start + distance * ease);
 

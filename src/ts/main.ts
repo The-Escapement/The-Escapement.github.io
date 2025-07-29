@@ -1,13 +1,13 @@
-import { MobileMenu } from "./mobile.js";
 import { EmailSubscription } from "./email.js";
-import { TeamsManager } from "./team.js";
-import { SmoothScroller } from "./scrolling.js";
+import { MobileMenu } from "./mobile.js";
 import { DesktopNavigation } from "./navigation.js";
+import { SmoothScroller } from "./scrolling.js";
+import { TeamsManager } from "./team.js";
 
-document.addEventListener("DOMContentLoaded", function () {
-  new DesktopNavigation();
+document.addEventListener("DOMContentLoaded", () => {
+  const desktopNav = new DesktopNavigation();
   const mobileMenu = new MobileMenu();
-  new SmoothScroller(mobileMenu);
-  new TeamsManager();
-  new EmailSubscription();
+  const smoothScroller = new SmoothScroller(mobileMenu);
+  const teamsManager = new TeamsManager();
+  const emailSubscription = new EmailSubscription();
 });

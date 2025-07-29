@@ -1,7 +1,7 @@
 export class DesktopNavigation {
-  private navBrandTitle: HTMLElement | null;
-  private desktopNavLinks: HTMLElement | null;
-  private splashSection: HTMLElement | null;
+  private readonly navBrandTitle: HTMLElement | undefined;
+  private readonly desktopNavLinks: HTMLElement | undefined;
+  private readonly splashSection: HTMLElement | undefined;
 
   constructor() {
     this.navBrandTitle = document.getElementById("nav-brand-title");
@@ -25,8 +25,12 @@ export class DesktopNavigation {
     this.updateNavigation();
 
     // Update on scroll
-    window.addEventListener("scroll", () => this.updateNavigation());
-    window.addEventListener("resize", () => this.updateNavigation());
+    window.addEventListener("scroll", () => {
+      this.updateNavigation();
+    });
+    window.addEventListener("resize", () => {
+      this.updateNavigation();
+    });
   }
 
   private updateNavigation(): void {

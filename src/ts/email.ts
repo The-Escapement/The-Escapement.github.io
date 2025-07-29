@@ -1,14 +1,17 @@
 export class EmailSubscription {
-  private subscriptionForm: HTMLFormElement | null = null;
-  private fullNameInput: HTMLInputElement | null = null;
-  private emailInput: HTMLInputElement | null = null;
-  private submitButton: HTMLButtonElement | null = null;
+  private readonly subscriptionForm: HTMLFormElement | undefined;
+  private fullNameInput: HTMLInputElement | undefined;
+  private emailInput: HTMLInputElement | undefined;
+  private submitButton: HTMLButtonElement | undefined;
 
   constructor() {
-    this.subscriptionForm = document.getElementById(
-      "subscription-form",
-    ) as HTMLFormElement;
-    this.init();
+    const form = document.getElementById("subscription-form");
+    if (form instanceof HTMLFormElement) {
+      this.subscriptionForm = form;
+      this.init();
+    } else {
+      console.error("Subscription form not found");
+    }
   }
 
   private init(): void {
@@ -17,13 +20,21 @@ export class EmailSubscription {
       return;
     }
 
-    this.fullNameInput = document.getElementById(
-      "full-name",
-    ) as HTMLInputElement;
-    this.emailInput = document.getElementById("email") as HTMLInputElement;
-    this.submitButton = this.subscriptionForm.querySelector(
-      ".submit-button",
-    ) as HTMLButtonElement;
+    const fullNameElement = document.getElementById("full-name");
+    const emailElement = document.getElementById("email");
+    const submitElement = this.subscriptionForm.querySelector(".submit-button");
+
+    if (fullNameElement instanceof HTMLInputElement) {
+      this.fullNameInput = fullNameElement;
+    }
+
+    if (emailElement instanceof HTMLInputElement) {
+      this.emailInput = emailElement;
+    }
+
+    if (submitElement instanceof HTMLButtonElement) {
+      this.submitButton = submitElement;
+    }
 
     if (!this.fullNameInput || !this.emailInput || !this.submitButton) {
       console.error("Required form elements not found");
@@ -45,7 +56,7 @@ export class EmailSubscription {
     const email = this.emailInput!.value.trim();
 
     if (!fullName || !email) {
-      alert("Please fill in all fields");
+      console.error("Please fill in all fields");
       return;
     }
 

@@ -1,16 +1,30 @@
 export class MobileMenu {
-  private mobileMenuButton: HTMLElement | null;
-  private mobileCloseButton: HTMLElement | null;
-  private mobileOverlay: HTMLElement | null;
-  private mobileLinks: NodeListOf<Element>;
+  private readonly mobileMenuButton: HTMLElement | undefined;
+  private readonly mobileCloseButton: HTMLElement | undefined;
+  private readonly mobileOverlay: HTMLElement | undefined;
+  private readonly mobileLinks: NodeListOf<Element>;
 
   constructor() {
-    this.mobileMenuButton = document.getElementById("mobile-menu-button");
-    this.mobileCloseButton = document.getElementById("mobile-close-button");
-    this.mobileOverlay = document.getElementById("nav-mobile-overlay");
+    const menuButton = document.getElementById("mobile-menu-button");
+    const closeButton = document.getElementById("mobile-close-button");
+    const overlay = document.getElementById("nav-mobile-overlay");
+
+    this.mobileMenuButton = menuButton ?? undefined;
+    this.mobileCloseButton = closeButton ?? undefined;
+    this.mobileOverlay = overlay ?? undefined;
     this.mobileLinks = document.querySelectorAll(".nav-mobile-link");
 
     this.init();
+  }
+
+  public closeMobileMenu(): void {
+    this.mobileOverlay!.classList.remove("active");
+    this.mobileMenuButton!.classList.remove("active");
+    document.body.classList.remove("menu-open");
+  }
+
+  public isOpen(): boolean {
+    return this.mobileOverlay!.classList.contains("active");
   }
 
   private init(): void {
@@ -60,15 +74,5 @@ export class MobileMenu {
     this.mobileOverlay!.classList.add("active");
     this.mobileMenuButton!.classList.add("active");
     document.body.classList.add("menu-open");
-  }
-
-  public closeMobileMenu(): void {
-    this.mobileOverlay!.classList.remove("active");
-    this.mobileMenuButton!.classList.remove("active");
-    document.body.classList.remove("menu-open");
-  }
-
-  public isOpen(): boolean {
-    return this.mobileOverlay!.classList.contains("active");
   }
 }
