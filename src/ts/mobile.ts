@@ -5,9 +5,15 @@ export class MobileMenu {
   private readonly mobileLinks: NodeListOf<Element>;
 
   constructor() {
-    const menuButton = document.querySelector("#mobile-menu-button") as HTMLElement | undefined;
-    const closeButton = document.querySelector("#mobile-close-button") as HTMLElement | undefined;
-    const overlay = document.querySelector("#nav-mobile-overlay") as HTMLElement | undefined;
+    const menuButton = document.querySelector("#mobile-menu-button") as
+      | HTMLElement
+      | undefined;
+    const closeButton = document.querySelector("#mobile-close-button") as
+      | HTMLElement
+      | undefined;
+    const overlay = document.querySelector("#nav-mobile-overlay") as
+      | HTMLElement
+      | undefined;
 
     this.mobileMenuButton = menuButton;
     this.mobileCloseButton = closeButton;

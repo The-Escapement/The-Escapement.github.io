@@ -8,8 +8,8 @@ export default [
   ...xo.xoToEslintConfig([
     {
       space: true,
-      prettier: 'compat'
-    }
+      prettier: "compat",
+    },
   ]),
   {
     files: ["**/*.ts"],
