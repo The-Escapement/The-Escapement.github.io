@@ -3,7 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="The Escapement - Events for and by watch enthusiasts and collectors sharing insights, stories, and passion for horology."
+    />
     <title>The Escapement</title>
+    <meta property="og:title" content="The Escapement" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://theescapement.com" />
+    <meta property="og:image" content="images/logos/stacked.helvetica.svg" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link
       rel="apple-touch-icon"
@@ -49,6 +57,7 @@
         </nav>
         <nav class="site-navigation" aria-label="Mobile navigation">
           <button
+            type="button"
             id="mobile-menu-button"
             class="nav-mobile-toggle"
             aria-label="Toggle menu"
@@ -76,6 +85,7 @@
                   />
                 </a>
                 <button
+                  type="button"
                   id="mobile-close-button"
                   class="nav-mobile-close"
                   aria-label="Close menu"
@@ -146,7 +156,11 @@
           <h2>CONTACT</h2>
           <div class="subscription-section">
             <p>Be the first to know when we're live</p>
-            <form id="subscription-form" class="subscription-form">
+            <form
+              id="subscription-form"
+              class="subscription-form"
+              method="POST"
+            >
               <div class="form-group">
                 <input
                   type="text"

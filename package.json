@@ -14,6 +14,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
+    "@html-eslint/eslint-plugin": "^0.44.0",
+    "@html-eslint/parser": "^0.44.0",
     "@vitejs/plugin-legacy": "^7.1.0",
     "autoprefixer": "^10.4.17",
     "chokidar-cli": "^3.0.0",
