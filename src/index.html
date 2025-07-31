@@ -34,156 +34,150 @@
     <link rel="manifest" href="images/favicons/site.webmanifest" />
   </head>
   <body>
-    <div id="site-wrapper" role="presentation">
-      <header>
-        <nav id="nav-wide" aria-label="Wide navigation">
-          <div id="nav-wide-brand">
-            <a href="#section-hero" id="nav-wide-title">
+    <header>
+      <nav id="nav-wide" aria-label="Wide navigation">
+        <div id="nav-wide-brand">
+          <a href="#section-hero" id="nav-wide-title">
+            <img
+              src="images/logos/horizontal.helvetica.svg"
+              alt="The Escapement"
+              id="nav-wide-logo"
+            />
+          </a>
+        </div>
+        <div id="nav-wide-links">
+          <a href="#section-about">About</a>
+          <a href="#section-team">Team</a>
+          <a href="#section-partners">Partners</a>
+          <a href="#section-contact">Contact</a>
+        </div>
+      </nav>
+      <nav id="nav-narrow" aria-label="Narrow navigation">
+        <button
+          type="button"
+          id="nav-narrow-button"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="nav-narrow-overlay"
+        >
+          <div id="nav-narrow-open">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+        <div id="nav-narrow-overlay" aria-hidden="true">
+          <div id="nav-narrow-brand">
+            <a href="#section-hero" id="nav-narrow-title">
               <img
                 src="images/logos/horizontal.helvetica.svg"
                 alt="The Escapement"
-                id="nav-wide-logo"
+                id="nav-narrow-logo"
               />
             </a>
+            <button type="button" id="nav-narrow-close" aria-label="Close menu">
+              <svg
+                class="fill-current h-6 w-6"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
-          <div id="nav-wide-links">
+          <div id="nav-narrow-links">
             <a href="#section-about">About</a>
             <a href="#section-team">Team</a>
             <a href="#section-partners">Partners</a>
             <a href="#section-contact">Contact</a>
           </div>
-        </nav>
-        <nav id="nav-narrow" aria-label="Narrow navigation">
-          <button
-            type="button"
-            id="nav-narrow-button"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-            aria-controls="nav-narrow-overlay"
-          >
-            <div id="nav-narrow-open">
-              <span></span>
-              <span></span>
-              <span></span>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="section-hero" aria-label="Welcome To The Escapement">
+        <h1 class="sr-only">Welcome To The Escapement</h1>
+        <div class="hero-logo">
+          <img
+            src="images/logos/stacked.helvetica.svg"
+            alt="The Escapement"
+            class="logo-image"
+          />
+        </div>
+        <p id="hero-tagline">For collectors, by collectors</p>
+        <p id="hero-coming">Coming Soon</p>
+      </section>
+      <section id="section-about" aria-labelledby="title-about">
+        <h2 id="title-about">About</h2>
+        <p>
+          Truly for watch collectors, by watch collectors. The Escapement is not
+          just a watch show&mdash;it's a stage, a story, and a celebration.
+          Discover a world where horology meets music, design, and immersive
+          storytelling.
+        </p>
+        <p>
+          The Escapement was born from a shared vision among lifelong horology
+          enthusiasts and seasoned event producers to create a first-of-a-kind,
+          immersive and interactive event dedicated entirely to watch
+          collectors.
+        </p>
+        <p>
+          Our founding team brings over 100 years of combined expertise in both
+          horology and live events. Our events team has delivered world-class
+          consumer experiences from Tokyo to Miami to Riyadh.
+        </p>
+      </section>
+      <section id="section-team" aria-labelledby="title-team">
+        <h2 id="title-team">Core Team</h2>
+        <p>Follow our team on Instagram.</p>
+        <div class="medallions-container" id="medallions-team"></div>
+      </section>
+      <section id="section-partners" aria-labelledby="title-partners">
+        <h2 id="title-partners">Partners</h2>
+        <p>Check out our collaborators around the world.</p>
+        <div class="medallions-container" id="medallions-partners"></div>
+      </section>
+      <section id="section-contact" aria-labelledby="title-contact">
+        <h2 id="title-contact">Contact</h2>
+        <div class="subscription-section">
+          <p>Be the first to know when we're live</p>
+          <form id="subscription-form" method="POST">
+            <div class="form-group">
+              <input
+                type="text"
+                id="full-name"
+                name="full-name"
+                placeholder="Full Name"
+                required
+                class="form-input"
+              />
             </div>
-          </button>
-          <div id="nav-narrow-overlay" aria-hidden="true">
-            <div id="nav-narrow-brand">
-              <a href="#section-hero" id="nav-narrow-title">
-                <img
-                  src="images/logos/horizontal.helvetica.svg"
-                  alt="The Escapement"
-                  id="nav-narrow-logo"
-                />
-              </a>
-              <button
-                type="button"
-                id="nav-narrow-close"
-                aria-label="Close menu"
-              >
-                <svg
-                  class="fill-current h-6 w-6"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+                class="form-input"
+              />
             </div>
-            <div id="nav-narrow-links">
-              <a href="#section-about">About</a>
-              <a href="#section-team">Team</a>
-              <a href="#section-partners">Partners</a>
-              <a href="#section-contact">Contact</a>
-            </div>
-          </div>
-        </nav>
-      </header>
-      <main>
-        <section id="section-hero" aria-label="Welcome To The Escapement">
-          <h1 class="sr-only">Welcome To The Escapement</h1>
-          <div class="hero-logo">
-            <img
-              src="images/logos/stacked.helvetica.svg"
-              alt="The Escapement"
-              class="logo-image"
-            />
-          </div>
-          <p id="hero-tagline">For collectors, by collectors</p>
-          <p id="hero-coming">Coming Soon</p>
-        </section>
-        <section id="section-about" aria-labelledby="title-about">
-          <h2 id="title-about">About</h2>
+            <button type="submit" class="submit-button">Subscribe</button>
+          </form>
+        </div>
+        <div class="direct-email-section">
+          <p>Or email us directly</p>
           <p>
-            Truly for watch collectors, by watch collectors. The Escapement is
-            not just a watch show&mdash;it's a stage, a story, and a
-            celebration. Discover a world where horology meets music, design,
-            and immersive storytelling.
+            <a href="mailto:info@theescapement.com" class="email-link">
+              info@theescapement.com
+            </a>
           </p>
-          <p>
-            The Escapement was born from a shared vision among lifelong horology
-            enthusiasts and seasoned event producers to create a
-            first-of-a-kind, immersive and interactive event dedicated entirely
-            to watch collectors.
-          </p>
-          <p>
-            Our founding team brings over 100 years of combined expertise in
-            both horology and live events. Our events team has delivered
-            world-class consumer experiences from Tokyo to Miami to Riyadh.
-          </p>
-        </section>
-        <section id="section-team" aria-labelledby="title-team">
-          <h2 id="title-team">Core Team</h2>
-          <p>Follow our team on Instagram.</p>
-          <div class="medallions-container" id="medallions-team"></div>
-        </section>
-        <section id="section-partners" aria-labelledby="title-partners">
-          <h2 id="title-partners">Partners</h2>
-          <p>Check out our collaborators around the world.</p>
-          <div class="medallions-container" id="medallions-partners"></div>
-        </section>
-        <section id="section-contact" aria-labelledby="title-contact">
-          <h2 id="title-contact">Contact</h2>
-          <div class="subscription-section">
-            <p>Be the first to know when we're live</p>
-            <form id="subscription-form" method="POST">
-              <div class="form-group">
-                <input
-                  type="text"
-                  id="full-name"
-                  name="full-name"
-                  placeholder="Full Name"
-                  required
-                  class="form-input"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  required
-                  class="form-input"
-                />
-              </div>
-              <button type="submit" class="submit-button">Subscribe</button>
-            </form>
-          </div>
-          <div class="direct-email-section">
-            <p>Or email us directly</p>
-            <p>
-              <a href="mailto:info@theescapement.com" class="email-link">
-                info@theescapement.com
-              </a>
-            </p>
-          </div>
-        </section>
-      </main>
-      <footer>
-        <p>&copy; 2025 The Escapement. All rights reserved.</p>
-      </footer>
-    </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 The Escapement. All rights reserved.</p>
+    </footer>
     <script type="module" src="./ts/main.ts"></script>
   </body>
 </html>
