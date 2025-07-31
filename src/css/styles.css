@@ -344,6 +344,40 @@ header::before {
   color: var(--color-accent);
 }
 
+/* Dark theme for sections */
+.theme-dark {
+  background-image: url('../images/backgrounds/marble.black.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
+}
+
+.theme-dark > * {
+  transform: scaleX(-1);
+}
+
+/* Team section with both X and Y axis flip */
+#section-team.theme-dark {
+  transform: scaleX(-1) scaleY(-1);
+}
+
+#section-team.theme-dark > * {
+  transform: scaleX(-1) scaleY(-1);
+}
+
+.theme-dark h2 {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.theme-dark p {
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
 /* hero section */
 #section-hero {
   min-height: 100vh;
@@ -353,10 +387,6 @@ header::before {
   align-items: center;
   text-align: center;
   padding: 2rem;
-  background-image: url("../images/backgrounds/marble.black.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 @media (min-width: 640px) {
