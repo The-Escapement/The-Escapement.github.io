@@ -8,7 +8,7 @@ export class NarrowMenu {
     const menuButton = document.querySelector("#nav-narrow-button") as
       | HTMLElement
       | undefined;
-    const closeButton = document.querySelector("#narrow-close-button") as
+    const closeButton = document.querySelector("#nav-narrow-close") as
       | HTMLElement
       | undefined;
     const overlay = document.querySelector("#nav-narrow-overlay") as

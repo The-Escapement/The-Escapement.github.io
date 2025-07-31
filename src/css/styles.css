@@ -304,7 +304,7 @@ body.menu-open {
   border-bottom: 1px solid var(--color-text-secondary);
 }
 
-.nav-narrow-close {
+#nav-narrow-close {
   background-color: transparent;
   border: none;
   color: var(--color-gray-500);
@@ -312,7 +312,7 @@ body.menu-open {
   padding: 0.25rem;
 }
 
-.nav-narrow-close:hover {
+#nav-narrow-close:hover {
   color: var(--color-gray-700);
 }
 
