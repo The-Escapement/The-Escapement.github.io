@@ -6,7 +6,7 @@ export class WideNavigation {
     this.navTopTitle = document.querySelector("#nav-wide-title") as
       | HTMLElement
       | undefined;
-    this.heroSection = document.querySelector("#hero") as
+    this.heroSection = document.querySelector("#section-hero") as
       | HTMLElement
       | undefined;
 

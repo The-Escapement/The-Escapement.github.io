@@ -41,8 +41,8 @@ export class TeamsManager {
   }
 
   private init(): void {
-    this.createMedallions(this.teamHandles, "team-medallions");
-    this.createMedallions(this.partnerHandles, "partners-medallions");
+    this.createMedallions(this.teamHandles, "medallions-team");
+    this.createMedallions(this.partnerHandles, "medallions-partners");
   }
 
   private createMedallions(handles: string[], containerId: string): void {
