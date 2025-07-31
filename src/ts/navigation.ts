@@ -1,4 +1,4 @@
-export class DesktopNavigation {
+export class WideNavigation {
   private readonly navTopTitle: HTMLElement | undefined;
   private readonly heroSection: HTMLElement | undefined;
 
@@ -37,7 +37,7 @@ export class DesktopNavigation {
 
   private updateNavigation(): void {
     if (window.innerWidth >= 1024) {
-      // Desktop navigation logic
+      // Wide navigation logic
       const heroRect = this.heroSection!.getBoundingClientRect();
       // Show top nav logo when hero section is more than 20% scrolled out of view
       const isheroVisible = heroRect.bottom > window.innerHeight * 0.2;

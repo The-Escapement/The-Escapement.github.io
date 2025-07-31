@@ -1,9 +1,9 @@
-import { type MobileMenu } from "./mobile.js";
+import { type NarrowMenu } from "./narrow.js";
 
 export class SmoothScroller {
   private readonly scrollLinks: NodeListOf<Element>;
 
-  constructor(private readonly mobileMenu: MobileMenu) {
+  constructor(private readonly narrowMenu: NarrowMenu) {
     this.scrollLinks = document.querySelectorAll('a[href^="#"]');
     this.init();
   }
@@ -28,9 +28,9 @@ export class SmoothScroller {
           return;
         }
 
-        // Close mobile menu if open
-        if (this.mobileMenu.isOpen()) {
-          this.mobileMenu.closeMobileMenu();
+        // Close narrow menu if open
+        if (this.narrowMenu.isOpen()) {
+          this.narrowMenu.closeNarrowMenu();
         }
 
         // Custom smooth scroll with easing

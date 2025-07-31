@@ -36,7 +36,7 @@
   <body>
     <div id="site-wrapper">
       <header>
-        <nav id="nav-wide" aria-label="Desktop navigation">
+        <nav id="nav-wide" aria-label="Wide navigation">
           <div class="nav-wide-brand">
             <a href="#hero" class="nav-wide-title" id="nav-wide-title">
               <img
@@ -53,13 +53,13 @@
             <a href="#contact">Contact</a>
           </div>
         </nav>
-        <nav id="nav-narrow" aria-label="Mobile navigation">
+        <nav id="nav-narrow" aria-label="Narrow navigation">
           <button
             type="button"
             id="nav-narrow-button"
             aria-label="Toggle menu"
             aria-expanded="false"
-            aria-controls="nav-mobile-overlay"
+            aria-controls="nav-narrow-overlay"
           >
             <div class="hamburger-icon">
               <span></span>
@@ -68,12 +68,12 @@
             </div>
           </button>
           <div
-            class="nav-mobile-overlay"
-            id="nav-mobile-overlay"
+            class="nav-narrow-overlay"
+            id="nav-narrow-overlay"
             aria-hidden="true"
           >
-            <div class="nav-mobile-content">
-              <div class="nav-mobile-header">
+            <div class="nav-narrow-content">
+              <div class="nav-narrow-header">
                 <a href="#hero" class="nav-brand-title">
                   <img
                     src="images/logos/horizontal.helvetica.svg"
@@ -83,8 +83,8 @@
                 </a>
                 <button
                   type="button"
-                  id="mobile-close-button"
-                  class="nav-mobile-close"
+                  id="narrow-close-button"
+                  class="nav-narrow-close"
                   aria-label="Close menu"
                 >
                   <svg
@@ -96,7 +96,7 @@
                   </svg>
                 </button>
               </div>
-              <div id="nav-mobile-links">
+              <div id="nav-narrow-links">
                 <a href="#about">About</a>
                 <a href="#team">Team</a>
                 <a href="#partners">Partners</a>
