@@ -122,12 +122,12 @@ body.menu-open {
   }
 }
 
-.nav-wide-brand {
+#nav-wide-brand {
   display: flex;
   align-items: center;
 }
 
-.nav-wide-title {
+#nav-wide-title {
   font-size: 1.25rem;
   font-family: "Helvetica", "Arial", sans-serif;
   font-weight: bold;
@@ -139,7 +139,7 @@ body.menu-open {
   cursor: pointer;
 }
 
-.nav-wide-title.visible {
+#nav-wide-title.visible {
   opacity: 1;
 }
 
@@ -151,7 +151,7 @@ body.menu-open {
   transition: opacity 0.3s ease;
 }
 
-.nav-wide-title:hover .nav-wide-logo {
+#nav-wide-title:hover .nav-wide-logo {
   opacity: 1;
 }
 
@@ -178,7 +178,7 @@ body.menu-open {
 }
 
 /* Narrow navigation brand title and logo styles */
-#nav-narrow-header .nav-brand-title {
+#nav-narrow-brand .nav-brand-title {
   opacity: 1;
   transform: translateY(0);
   font-size: 1.25rem;
@@ -190,7 +190,7 @@ body.menu-open {
 }
 
 /* Narrow logo specific styling */
-#nav-narrow-header .nav-logo {
+#nav-narrow-brand .nav-logo {
   height: 4rem;
   width: auto;
   filter: brightness(0) invert(1);
@@ -295,7 +295,7 @@ body.menu-open {
   transform: translateX(0);
 }
 
-#nav-narrow-header {
+#nav-narrow-brand {
   display: flex;
   justify-content: space-between;
   align-items: center;
