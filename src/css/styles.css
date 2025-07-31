@@ -143,7 +143,7 @@ body.menu-open {
   opacity: 1;
 }
 
-.nav-wide-logo {
+#nav-wide-logo {
   height: 2.5rem;
   width: auto;
   filter: brightness(0) invert(1);
@@ -151,7 +151,7 @@ body.menu-open {
   transition: opacity 0.3s ease;
 }
 
-#nav-wide-title:hover .nav-wide-logo {
+#nav-wide-title:hover #nav-wide-logo {
   opacity: 1;
 }
 
@@ -178,7 +178,7 @@ body.menu-open {
 }
 
 /* Narrow navigation brand title and logo styles */
-#nav-narrow-brand #nav-narrow-title {
+#nav-narrow-title {
   opacity: 1;
   transform: translateY(0);
   font-size: 1.25rem;
@@ -190,7 +190,7 @@ body.menu-open {
 }
 
 /* Narrow logo specific styling */
-#nav-narrow-brand .nav-logo {
+#nav-narrow-logo {
   height: 4rem;
   width: auto;
   filter: brightness(0) invert(1);
