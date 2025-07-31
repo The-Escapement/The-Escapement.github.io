@@ -3,7 +3,7 @@ export class DesktopNavigation {
   private readonly heroSection: HTMLElement | undefined;
 
   constructor() {
-    this.navTopTitle = document.querySelector("#nav-top-title") as
+    this.navTopTitle = document.querySelector("#nav-wide-title") as
       | HTMLElement
       | undefined;
     this.heroSection = document.querySelector("#hero") as
