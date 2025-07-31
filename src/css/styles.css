@@ -220,7 +220,7 @@ body.menu-open {
   }
 }
 
-.hamburger-icon {
+#nav-narrow-button-icon {
   width: 1.5rem;
   height: 1.125rem;
   position: relative;
@@ -229,7 +229,7 @@ body.menu-open {
   justify-content: space-between;
 }
 
-.hamburger-icon span {
+#nav-narrow-button-icon span {
   display: block;
   width: 100%;
   height: 0.125rem;
@@ -238,33 +238,33 @@ body.menu-open {
   transform-origin: center;
 }
 
-#nav-narrow-button:hover .hamburger-icon span {
+#nav-narrow-button:hover #nav-narrow-button-icon span {
   background-color: var(--color-accent); /* gold */
 }
 
 /* Hamburger to X animation when menu is active */
 .nav-narrow-overlay.active
   ~ #nav-narrow-button
-  .hamburger-icon
+  #nav-narrow-button-icon
   span:nth-child(1),
-#nav-narrow-button.active .hamburger-icon span:nth-child(1) {
+#nav-narrow-button.active #nav-narrow-button-icon span:nth-child(1) {
   transform: rotate(45deg) translate(0.375rem, 0.375rem);
 }
 
 .nav-narrow-overlay.active
   ~ #nav-narrow-button
-  .hamburger-icon
+  #nav-narrow-button-icon
   span:nth-child(2),
-#nav-narrow-button.active .hamburger-icon span:nth-child(2) {
+#nav-narrow-button.active #nav-narrow-button-icon span:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
 
 .nav-narrow-overlay.active
   ~ #nav-narrow-button
-  .hamburger-icon
+  #nav-narrow-button-icon
   span:nth-child(3),
-#nav-narrow-button.active .hamburger-icon span:nth-child(3) {
+#nav-narrow-button.active #nav-narrow-button-icon span:nth-child(3) {
   transform: rotate(-45deg) translate(0.375rem, -0.375rem);
 }
 
