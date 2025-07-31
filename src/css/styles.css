@@ -178,7 +178,7 @@ body.menu-open {
 }
 
 /* Narrow navigation brand title and logo styles */
-#nav-narrow-brand .nav-brand-title {
+#nav-narrow-brand #nav-narrow-title {
   opacity: 1;
   transform: translateY(0);
   font-size: 1.25rem;
