@@ -178,7 +178,7 @@ body.menu-open {
 }
 
 /* Narrow navigation brand title and logo styles */
-.nav-narrow-header .nav-brand-title {
+#nav-narrow-header .nav-brand-title {
   opacity: 1;
   transform: translateY(0);
   font-size: 1.25rem;
@@ -190,7 +190,7 @@ body.menu-open {
 }
 
 /* Narrow logo specific styling */
-.nav-narrow-header .nav-logo {
+#nav-narrow-header .nav-logo {
   height: 4rem;
   width: auto;
   filter: brightness(0) invert(1);
@@ -295,7 +295,7 @@ body.menu-open {
   transform: translateX(0);
 }
 
-.nav-narrow-header {
+#nav-narrow-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
