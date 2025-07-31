@@ -36,6 +36,14 @@
   --color-accent-transparent: var(--palette-gold-transparent);
 }
 
+/* Theme Colors */
+:root {
+  --theme-dark-text: var(--palette-platinum);
+  --theme-dark-accent: var(--palette-gold);
+  --theme-light-text: var(--palette-black);
+  --theme-light-accent: var(--palette-gold-dark);
+}
+
 /* Base styles with new font stack */
 html {
   scroll-behavior: smooth;
@@ -346,7 +354,7 @@ header::before {
 
 /* Dark theme for sections */
 .theme-dark {
-  background-image: url('../images/backgrounds/marble.black.jpg');
+  background-image: url("../images/backgrounds/marble.black.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -367,15 +375,75 @@ header::before {
 }
 
 .theme-dark h2 {
-  color: var(--color-accent);
+  color: var(--theme-dark-accent);
   text-transform: uppercase;
   font-family: "Helvetica", "Arial", sans-serif;
 }
 
 .theme-dark p {
-  color: var(--color-text-primary);
+  color: var(--theme-dark-text);
   text-transform: uppercase;
   font-family: "Helvetica", "Arial", sans-serif;
+}
+
+/* Light theme for sections */
+.theme-light {
+  background-image: url("../images/backgrounds/marble.white.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
+}
+
+.theme-light > * {
+  transform: scaleX(-1);
+}
+
+/* Team section with both X and Y axis flip */
+#section-team.theme-light {
+  transform: scaleX(-1) scaleY(-1);
+}
+
+#section-team.theme-light > * {
+  transform: scaleX(-1) scaleY(-1);
+}
+
+/* About section with Y axis flip */
+#section-about.theme-dark,
+#section-about.theme-light {
+  transform: scaleX(1) scaleY(1);
+}
+
+#section-about.theme-dark > *,
+#section-about.theme-light > * {
+  transform: scaleX(1) scaleY(1);
+}
+
+/* About section with Y axis flip */
+#section-partners.theme-dark,
+#section-partners.theme-light {
+  transform: scaleX(1) scaleY(-1);
+}
+
+#section-partners.theme-dark > *,
+#section-partners.theme-light > * {
+  transform: scaleX(1) scaleY(-1);
+}
+
+.theme-light h2 {
+  color: var(--theme-light-accent);
+  text-transform: uppercase;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.theme-light p {
+  color: var(--theme-light-text);
+  text-transform: uppercase;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.theme-light .medallion-caption {
+  color: var(--palette-black);
 }
 
 /* hero section */
