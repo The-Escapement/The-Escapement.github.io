@@ -44,12 +44,7 @@ html {
 
 body {
   font-family: "Century Gothic", "CenturyGothic", "AppleGothic", sans-serif;
-  background: linear-gradient(
-    135deg,
-    var(--color-background) 0%,
-    var(--color-background-end) 100%
-  );
-  background-attachment: fixed;
+  background: var(--color-background);
   color: var(--color-text-primary);
   min-height: 100vh;
   margin: 0 auto;
@@ -356,6 +351,10 @@ header::before {
   align-items: center;
   text-align: center;
   padding: 2rem;
+  background-image: url('../images/backgrounds/marble.black.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (min-width: 640px) {
