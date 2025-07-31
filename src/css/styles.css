@@ -271,13 +271,15 @@ body.menu-open {
 #nav-narrow-overlay {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 17.5rem;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--color-background);
+  padding: 1.5rem;
   z-index: 55;
   opacity: 0;
   visibility: hidden;
+  transform: translateX(100%);
   transition: all 0.3s;
 }
 
@@ -290,21 +292,6 @@ body.menu-open {
 #nav-narrow-overlay.active {
   opacity: 1;
   visibility: visible;
-}
-
-.nav-narrow-content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 17.5rem;
-  height: 100%;
-  background-color: var(--color-background);
-  padding: 1.5rem;
-  transform: translateX(100%);
-  transition: transform 0.3s;
-}
-
-#nav-narrow-overlay.active .nav-narrow-content {
   transform: translateX(0);
 }
 
