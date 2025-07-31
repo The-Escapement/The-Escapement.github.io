@@ -1,12 +1,12 @@
 export class DesktopNavigation {
   private readonly navTopTitle: HTMLElement | undefined;
-  private readonly splashSection: HTMLElement | undefined;
+  private readonly heroSection: HTMLElement | undefined;
 
   constructor() {
     this.navTopTitle = document.querySelector("#nav-top-title") as
       | HTMLElement
       | undefined;
-    this.splashSection = document.querySelector("#splash") as
+    this.heroSection = document.querySelector("#hero") as
       | HTMLElement
       | undefined;
 
@@ -14,7 +14,7 @@ export class DesktopNavigation {
   }
 
   private init(): void {
-    if (!this.navTopTitle || !this.splashSection) {
+    if (!this.navTopTitle || !this.heroSection) {
       console.error("Required navigation elements not found");
       return;
     }
@@ -38,11 +38,11 @@ export class DesktopNavigation {
   private updateNavigation(): void {
     if (window.innerWidth >= 1024) {
       // Desktop navigation logic
-      const splashRect = this.splashSection!.getBoundingClientRect();
-      // Show top nav logo when splash section is more than 20% scrolled out of view
-      const isSplashVisible = splashRect.bottom > window.innerHeight * 0.2;
+      const heroRect = this.heroSection!.getBoundingClientRect();
+      // Show top nav logo when hero section is more than 20% scrolled out of view
+      const isheroVisible = heroRect.bottom > window.innerHeight * 0.2;
 
-      if (isSplashVisible) {
+      if (isheroVisible) {
         // Hide top nav logo
         this.navTopTitle!.classList.remove("visible");
       } else {
