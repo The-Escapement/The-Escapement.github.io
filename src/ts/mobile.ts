@@ -5,7 +5,7 @@ export class MobileMenu {
   private readonly mobileLinks: NodeListOf<Element>;
 
   constructor() {
-    const menuButton = document.querySelector("#mobile-menu-button") as
+    const menuButton = document.querySelector("#nav-narrow-button") as
       | HTMLElement
       | undefined;
     const closeButton = document.querySelector("#mobile-close-button") as
