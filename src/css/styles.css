@@ -181,8 +181,6 @@ body.menu-open {
   color: var(--color-accent);
 }
 
-
-
 /* Mobile navigation brand title and logo styles */
 .nav-mobile-header .nav-brand-title {
   opacity: 1;
