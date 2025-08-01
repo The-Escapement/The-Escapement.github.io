@@ -492,6 +492,11 @@ header::before {
   background-repeat: no-repeat;
 }
 
+/* Remove darkening overlay for splash section */
+#section-splash.theme-dark::before {
+  display: none;
+}
+
 @media (min-width: 640px) {
   #section-splash {
     padding: 3rem 1.5rem;
@@ -560,7 +565,6 @@ header::before {
 .logo-image {
   width: clamp(400px, 100vw, 800px);
   height: auto;
-  filter: brightness(0) invert(1);
   opacity: 0.9;
   transition: opacity 0.3s ease;
 }
