@@ -70,7 +70,7 @@ body {
 p {
   font-size: 1.25rem;
   font-family: "Century Gothic", "CenturyGothic", "AppleGothic", sans-serif;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: uppercase;
 }
 
