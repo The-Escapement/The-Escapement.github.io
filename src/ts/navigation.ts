@@ -1,12 +1,12 @@
 export class WideNavigation {
   private readonly navTopTitle: HTMLElement | undefined;
-  private readonly heroSection: HTMLElement | undefined;
+  private readonly splashSection: HTMLElement | undefined;
 
   constructor() {
     this.navTopTitle = document.querySelector("#nav-wide-title") as
       | HTMLElement
       | undefined;
-    this.heroSection = document.querySelector("#section-hero") as
+    this.splashSection = document.querySelector("#section-splash") as
       | HTMLElement
       | undefined;
 
@@ -14,7 +14,7 @@ export class WideNavigation {
   }
 
   private init(): void {
-    if (!this.navTopTitle || !this.heroSection) {
+    if (!this.navTopTitle || !this.splashSection) {
       console.error("Required navigation elements not found");
       return;
     }
@@ -38,11 +38,11 @@ export class WideNavigation {
   private updateNavigation(): void {
     if (window.innerWidth >= 1024) {
       // Wide navigation logic
-      const heroRect = this.heroSection!.getBoundingClientRect();
-      // Show top nav logo when hero section is more than 20% scrolled out of view
-      const isheroVisible = heroRect.bottom > window.innerHeight * 0.2;
+      const splashRect = this.splashSection!.getBoundingClientRect();
+      // Show top nav logo when splash section is more than 20% scrolled out of view
+      const issplashVisible = splashRect.bottom > window.innerHeight * 0.2;
 
-      if (isheroVisible) {
+      if (issplashVisible) {
         // Hide top nav logo
         this.navTopTitle!.classList.remove("visible");
       } else {

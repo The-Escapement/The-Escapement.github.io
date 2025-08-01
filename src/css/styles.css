@@ -122,7 +122,7 @@ header::before {
 
 #nav-wide {
   position: relative;
-  max-width: 60rem;
+  max-width: 100rem;
   margin: 0 auto;
   height: 4rem;
   display: none;
@@ -359,10 +359,24 @@ header::before {
   background-position: center;
   background-repeat: no-repeat;
   transform: scaleX(-1);
+  position: relative;
+}
+
+.theme-dark::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
 .theme-dark > * {
   transform: scaleX(-1);
+  position: relative;
+  z-index: 2;
 }
 
 /* Team section with both X and Y axis flip */
@@ -446,8 +460,8 @@ header::before {
   color: var(--palette-black);
 }
 
-/* hero section */
-#section-hero {
+/* Splash section with splash background */
+#section-splash {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -455,21 +469,25 @@ header::before {
   align-items: center;
   text-align: center;
   padding: 2rem;
+  background-image: url("../images/backgrounds/marble.splash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (min-width: 640px) {
-  #section-hero {
+  #section-splash {
     padding: 3rem 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
-  #section-hero {
+  #section-splash {
     padding: 4rem 2rem;
   }
 }
 
-#section-hero h1 {
+#section-splash h1 {
   font-size: clamp(1.25rem, 4vw, 2rem);
   line-height: 1.3;
   margin-bottom: 1.5rem;
@@ -478,7 +496,7 @@ header::before {
   color: var(--color-accent);
 }
 
-#section-hero p {
+#section-splash p {
   font-size: clamp(1rem, 3vw, 1.25rem);
   line-height: 1.6;
   max-width: 40rem;
@@ -486,19 +504,19 @@ header::before {
   color: var(--color-text-secondary);
 }
 
-/* Hero specific elements */
-#section-hero #hero-tagline {
+/* Splash specific elements */
+#section-splash #splash-tagline {
   font-size: clamp(1.125rem, 3.5vw, 1.5rem);
   color: var(--color-accent);
   margin-bottom: 1rem;
 }
 
-#section-hero #hero-coming {
-  font-size: clamp(1.125rem, 3.5vw, 1.5rem);
+#section-splash #splash-coming {
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
   margin-bottom: 2rem;
 }
 
-#hero-contact {
+#splash-contact {
   display: inline-block;
   background-color: var(--color-accent);
   color: var(--palette-black);
@@ -510,11 +528,11 @@ header::before {
   transition: background-color 0.2s;
 }
 
-#hero-contact:hover {
+#splash-contact:hover {
   background-color: var(--color-accent-hover);
 }
 
-.hero-logo {
+.splash-logo {
   margin-bottom: 3rem;
   display: flex;
   justify-content: center;
