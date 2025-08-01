@@ -39,9 +39,11 @@
 /* Theme Colors */
 :root {
   --theme-dark-text: var(--palette-platinum);
+  --theme-dark-background: var(--palette-black);
   --theme-dark-accent: var(--palette-gold);
   --theme-light-text: var(--palette-black);
   --theme-light-accent: var(--palette-gold-dark);
+  --theme-light-background: var(--palette-platinum);
 }
 
 /* Base styles with new font stack */
@@ -57,6 +59,13 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+}
+
+/* All paragraphs use Helvetica and uppercase */
+p {
+  font-family: "Helvetica", "Arial", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.125rem;
 }
 
 /* Body state classes */
@@ -396,8 +405,6 @@ header::before {
 
 .theme-dark p {
   color: var(--theme-dark-text);
-  text-transform: uppercase;
-  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 /* Light theme for sections */
@@ -425,23 +432,29 @@ header::before {
 /* About section with Y axis flip */
 #section-about.theme-dark,
 #section-about.theme-light {
-  transform: scaleX(1) scaleY(1);
+  transform: scaleX(-1) scaleY(-1);
 }
 
 #section-about.theme-dark > *,
 #section-about.theme-light > * {
-  transform: scaleX(1) scaleY(1);
+  transform: scaleX(-1) scaleY(-1);
 }
 
 /* About section with Y axis flip */
 #section-partners.theme-dark,
 #section-partners.theme-light {
-  transform: scaleX(1) scaleY(-1);
+  transform: scaleX(-1) scaleY(-1);
 }
 
 #section-partners.theme-dark > *,
 #section-partners.theme-light > * {
-  transform: scaleX(1) scaleY(-1);
+  transform: scaleX(-1) scaleY(-1);
+}
+
+/* Hero section override - no background image, solid background */
+#section-hero.theme-light {
+  background-image: none;
+  background-color: var(--theme-light-background);
 }
 
 .theme-light h2 {
@@ -452,8 +465,6 @@ header::before {
 
 .theme-light p {
   color: var(--theme-light-text);
-  text-transform: uppercase;
-  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 .theme-light .medallion-caption {
