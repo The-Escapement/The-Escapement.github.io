@@ -14,9 +14,11 @@
   --palette-slate: #475569;
   --palette-slate-light: #64748b;
 
-  --palette-gold: #eab308;
+  /* --palette-gold: #eab308; */
+  --palette-gold: #d9c28d;
   --palette-gold-transparent: #eab3081a;
-  --palette-gold-dark: #f59e0b;
+  /* --palette-gold-dark: #f59e0b; */
+  --palette-gold-dark: #92784d;
 }
 
 /* Semantic Colors */
