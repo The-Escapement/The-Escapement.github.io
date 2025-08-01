@@ -9,6 +9,8 @@ export class TeamsManager {
     "waitlisted",
   ];
 
+  private readonly toBeAnnounced = ["Perezscope"];
+
   private readonly partnerHandles = [
     // "Seddiqi",
     "TheJourneGuy",
@@ -58,9 +60,13 @@ export class TeamsManager {
       const medallion = document.createElement("div");
       medallion.className = "medallion";
 
+      const captionText = this.toBeAnnounced.includes(handle)
+        ? "To Be Announced"
+        : `@${handle}`;
+
       const img = document.createElement("img");
       img.src = `images/team/${handle}.jpg`;
-      img.alt = `@${handle}`;
+      img.alt = captionText;
 
       // Handle image load error with fallback
       img.addEventListener("error", () => {
@@ -73,7 +79,7 @@ export class TeamsManager {
 
       const caption = document.createElement("div");
       caption.className = "medallion-caption";
-      caption.textContent = `@${handle}`;
+      caption.textContent = captionText;
 
       // Make the entire wrapper clickable
       medallionWrapper.addEventListener("click", () => {
