@@ -32,6 +32,17 @@
     />
     <link rel="icon" href="images/favicons/favicon.ico" />
     <link rel="manifest" href="images/favicons/site.webmanifest" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "zmPgTLf8Ez28MtmHD",
+        });
+      })();
+    </script>
   </head>
   <body>
     <header>
@@ -179,7 +190,8 @@
           <h2 id="title-contact">Contact</h2>
           <div class="subscription-section">
             <p>Be the first to know when we're live.</p>
-            <form id="subscription-form" method="POST">
+            <!-- eslint-disable-next-line @html-eslint/require-form-method -->
+            <form id="subscription-form">
               <div class="form-group">
                 <input
                   type="text"

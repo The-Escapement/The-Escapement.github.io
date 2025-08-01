@@ -67,9 +67,9 @@ export class EmailSubscription {
   }
 
   private setupEventListeners(): void {
-    this.subscriptionForm!.addEventListener("submit", (event) => {
+    this.subscriptionForm!.addEventListener("submit", async (event) => {
       event.preventDefault();
-      this.handleSubmit();
+      await this.handleSubmit();
     });
 
     // Add real-time validation listeners
@@ -153,7 +153,7 @@ export class EmailSubscription {
     }
   }
 
-  private handleSubmit(): void {
+  private async handleSubmit(): Promise<void> {
     if (!this.isFormValid) {
       return;
     }
@@ -165,26 +165,39 @@ export class EmailSubscription {
     this.submitButton!.disabled = true;
     this.submitButton!.textContent = "Sending...";
 
-    // Create mailto link with subscription details
-    const subject = "SUBSCRIBE";
-    const body = `Name: ${fullName}\nEmail: ${email}\n\nPlease add me to your mailing list for updates about The Escapement.`;
-    const mailtoLink = `mailto:info@theescapement.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // Send email using EmailJS
+    const templateParameters = {
+      name: fullName,
+      email,
+    };
 
-    // Open default email client
-    globalThis.location.href = mailtoLink;
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      await (globalThis as any).emailjs.send(
+        "default_service",
+        "template_44wj4bp",
+        templateParameters,
+      );
+      console.log("SUCCESS!");
+      this.submitButton!.textContent = "Sent!";
 
-    // Reset form and button after a short delay
-    setTimeout(() => {
-      this.subscriptionForm!.reset();
-      this.fullNameInput!.classList.remove("error");
-      this.emailInput!.classList.remove("error");
-      this.fullNameError!.classList.remove("visible");
-      this.emailError!.classList.remove("visible");
-      this.submitButton!.disabled = true;
-      this.submitButton!.textContent = "Subscribe";
-      this.isFormValid = false;
-      this.fullNameTouched = false;
-      this.emailTouched = false;
-    }, 1000);
+      // Reset form and button after a short delay
+      setTimeout(() => {
+        this.subscriptionForm!.reset();
+        this.fullNameInput!.classList.remove("error");
+        this.emailInput!.classList.remove("error");
+        this.fullNameError!.classList.remove("visible");
+        this.emailError!.classList.remove("visible");
+        this.submitButton!.disabled = true;
+        this.submitButton!.textContent = "Subscribe";
+        this.isFormValid = false;
+        this.fullNameTouched = false;
+        this.emailTouched = false;
+      }, 2000);
+    } catch {
+      console.log("FAILED...");
+      this.submitButton!.textContent = "Error - Try Again";
+      this.submitButton!.disabled = false;
+    }
   }
 }
