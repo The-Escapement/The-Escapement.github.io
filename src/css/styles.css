@@ -567,6 +567,7 @@ header::before {
   height: auto;
   opacity: 0.9;
   transition: opacity 0.3s ease;
+  filter: drop-shadow(0 12px 2px var(--palette-black));
 }
 
 .logo-image:hover {
