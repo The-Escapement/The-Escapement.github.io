@@ -178,7 +178,7 @@
         <div class="section-content">
           <h2 id="title-contact">Contact</h2>
           <div class="subscription-section">
-            <p>Be the first to know when we're live</p>
+            <p>Be the first to know when we're live.</p>
             <form id="subscription-form" method="POST">
               <div class="form-group">
                 <input
@@ -189,6 +189,9 @@
                   required
                   class="form-input"
                 />
+                <div id="full-name-error" class="error-message">
+                  Please enter your full name
+                </div>
               </div>
               <div class="form-group">
                 <input
@@ -199,6 +202,9 @@
                   required
                   class="form-input"
                 />
+                <div id="email-error" class="error-message">
+                  Please enter a valid email address
+                </div>
               </div>
               <button type="submit" class="submit-button">Subscribe</button>
             </form>
