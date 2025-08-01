@@ -641,7 +641,7 @@ h2 {
 }
 
 .medallion-caption {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--color-text-primary);
   text-align: center;
   font-family: "Century Gothic", "CenturyGothic", "AppleGothic", sans-serif;
@@ -670,7 +670,7 @@ h2 {
 
   .medallion-caption {
     max-width: 150px;
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 
   .medallion-fallback {
