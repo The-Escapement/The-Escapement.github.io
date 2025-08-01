@@ -7,7 +7,7 @@
 # Create public/images/team directory if it doesn't exist
 mkdir -p public/images/team
 
-# Instagram handles from the HTML file
+# Instagram handles from teams.ts
 HANDLES="
 andrew_morgan_watches
 arabwatchguide
@@ -16,6 +16,7 @@ equationdutemps
 fumanku
 horoloupe
 jacopo_corvo
+justinhast
 kingflum
 langepedia
 marc.gebauer
@@ -25,6 +26,7 @@ Perezscope
 rjbroer
 s7ndro
 samuelnaldi
+Seddiqi
 Shani.watch
 silas.walton
 SwissWatchGang
