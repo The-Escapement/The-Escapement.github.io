@@ -81,7 +81,13 @@ body.menu-open {
 
 /* Main content container */
 main {
-  margin-top: 4rem; /* Account for top navigation */
+  margin-top: 0; /* No margin needed in narrow mode since header is hidden */
+}
+
+@media (min-width: 1024px) {
+  main {
+    margin-top: 4rem; /* Account for top navigation in wide mode */
+  }
 }
 
 /* Section content wrapper for centering */
