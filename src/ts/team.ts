@@ -60,22 +60,24 @@ export class TeamsManager {
       const medallion = document.createElement("div");
       medallion.className = "medallion";
 
-      const captionText = this.toBeAnnounced.includes(handle)
-        ? "To Be Announced"
-        : `@${handle}`;
+      const anounceNow = !this.toBeAnnounced.includes(handle);
+
+      const captionText = anounceNow ? `@${handle}` : "To Be Announced";
 
       const img = document.createElement("img");
       img.src = `images/team/${handle}.jpg`;
       img.alt = captionText;
 
       // Handle image load error with fallback
-      img.addEventListener("error", () => {
-        medallion.innerHTML = `
+      if (anounceNow) {
+        img.addEventListener("error", () => {
+          medallion.innerHTML = `
           <div class="medallion-fallback">
             @${handle}
           </div>
         `;
-      });
+        });
+      }
 
       const caption = document.createElement("div");
       caption.className = "medallion-caption";
