@@ -65,28 +65,23 @@ export class TeamsManager {
       const captionText = anounceNow ? `@${handle}` : "To Be Announced";
 
       const img = document.createElement("img");
-      img.src = `images/team/${handle}.jpg`;
-      img.alt = captionText;
 
-      // Handle image load error with fallback
-      if (anounceNow) {
-        img.addEventListener("error", () => {
-          medallion.innerHTML = `
-          <div class="medallion-fallback">
-            @${handle}
-          </div>
-        `;
-        });
-      }
+      img.src = anounceNow
+        ? `images/team/${handle}.jpg`
+        : `images/team/unannounced.jpg`;
+
+      img.alt = captionText;
 
       const caption = document.createElement("div");
       caption.className = "medallion-caption";
       caption.textContent = captionText;
 
       // Make the entire wrapper clickable
-      medallionWrapper.addEventListener("click", () => {
-        window.open(`https://instagram.com/${handle}`, "_blank");
-      });
+      if (anounceNow) {
+        medallionWrapper.addEventListener("click", () => {
+          window.open(`https://instagram.com/${handle}`, "_blank");
+        });
+      }
 
       medallion.append(img);
       medallionWrapper.append(medallion);
