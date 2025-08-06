@@ -60,13 +60,13 @@ export class TeamsManager {
       const medallion = document.createElement("div");
       medallion.className = "medallion";
 
-      const anounceNow = !this.toBeAnnounced.includes(handle);
+      const announceNow = !this.toBeAnnounced.includes(handle);
 
-      const captionText = anounceNow ? `@${handle}` : "To Be Announced";
+      const captionText = announceNow ? `@${handle}` : "To Be Announced";
 
       const img = document.createElement("img");
 
-      img.src = anounceNow
+      img.src = announceNow
         ? `images/team/${handle}.jpg`
         : `images/team/unannounced.jpg`;
 
@@ -77,7 +77,7 @@ export class TeamsManager {
       caption.textContent = captionText;
 
       // Make the entire wrapper clickable
-      if (anounceNow) {
+      if (announceNow) {
         medallionWrapper.addEventListener("click", () => {
           window.open(`https://instagram.com/${handle}`, "_blank");
         });
