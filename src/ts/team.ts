@@ -38,11 +38,7 @@ export class TeamsManager {
     "watchthetime",
   ];
 
-  constructor() {
-    this.init();
-  }
-
-  private init(): void {
+  init(): void {
     this.createMedallions(this.teamHandles, "medallions-team");
     this.createMedallions(this.partnerHandles, "medallions-partners");
   }
@@ -67,8 +63,8 @@ export class TeamsManager {
       const img = document.createElement("img");
 
       img.src = announceNow
-        ? `images/team/${handle}.jpg`
-        : `images/team/unannounced.jpg`;
+        ? `/images/team/${handle}.jpg`
+        : `/images/team/unannounced.jpg`;
 
       img.alt = captionText;
 

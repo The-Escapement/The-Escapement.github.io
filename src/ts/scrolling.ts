@@ -5,10 +5,9 @@ export class SmoothScroller {
 
   constructor(private readonly narrowMenu: NarrowMenu) {
     this.scrollLinks = document.querySelectorAll('a[href^="#"]');
-    this.init();
   }
 
-  private init(): void {
+  init(): void {
     this.setupEventListeners();
   }
 

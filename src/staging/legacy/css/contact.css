@@ -1,0 +1,126 @@
+/* Form Layout */
+form {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-5);
+  max-width: var(--size-content-2);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+input {
+  /* TODO: using this fails lint */
+  /* outline: none; */
+  padding: var(--size-3) var(--size-5);
+  border-color: var(--gray-4);
+  border-radius: var(--radius-2);
+  font-family: var(--theme-form-input-font-family);
+  font-size: var(--theme-form-input-font-size);
+  transition:
+    border-color var(--ease-out-3),
+    box-shadow var(--ease-out-3);
+  background-color: var(--theme-form-input-color-background);
+  color: var(--theme-form-input-color-text);
+}
+
+input:focus {
+  border: var(--size-1) solid var(--theme-color-accent);
+  /* border-color: var(--theme-color-accent); */
+  box-shadow: 0 0 0 var(--size-3) rgba(217, 194, 141, 0.1);
+}
+
+/* Placeholder styling */
+input::placeholder {
+  color: var(--theme-form-input-color-label);
+}
+
+input.error {
+  border-color: var(--theme-form-error-color);
+  box-shadow: 0 0 0 var(--size-3) rgba(220, 38, 38, 0.1);
+}
+
+input.error:focus {
+  border-color: var(--theme-form-error-color);
+  box-shadow: 0 0 0 var(--size-3) rgba(220, 38, 38, 0.2);
+}
+
+/* Error Messages */
+.error-message {
+  color: var(--theme-form-error-color);
+  font-size: var(--theme-form-error-font-size);
+  margin-top: var(--size-3);
+  font-family: var(--theme-form-error-font-family);
+  font-weight: normal;
+  display: none;
+  position: static;
+  white-space: normal;
+}
+
+.error-message.visible {
+  display: block;
+}
+
+/* Contact Section Layout */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--size-8);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .contact-layout {
+    grid-template-columns: auto 1fr;
+    gap: var(--size-9);
+  }
+}
+
+.subscription-section {
+  min-width: 0;
+}
+
+.email-section {
+  min-width: 0;
+}
+
+/* Buttons */
+form button {
+  padding: var(--size-3) var(--size-7);
+  background-color: var(--theme-form-submit-color-enabled-background);
+  color: var(--theme-form-submit-color-enabled-text);
+  border: none;
+  border-radius: var(--radius-2);
+  font-family: var(--theme-form-submit-font-family);
+  font-size: var(--theme-form-submit-font-size);
+  font-weight: normal;
+  cursor: pointer;
+  transition: background-color var(--ease-out-3);
+  margin-top: var(--size-3);
+  max-width: var(--size-content-2);
+}
+
+form button:hover {
+  background-color: var(--theme-color-hover);
+}
+
+form button:disabled {
+  background-color: var(--theme-form-submit-color-disabled-background);
+  color: var(--theme-form-submit-color-disabled-text);
+  cursor: not-allowed;
+}
+
+.email-link {
+  color: var(--theme-color-hover);
+  text-decoration: none;
+  transition: color var(--ease-out-3);
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}

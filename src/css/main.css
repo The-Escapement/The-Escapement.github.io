@@ -130,7 +130,7 @@ header::before {
   right: 0;
   height: 4rem;
   background-color: rgba(2, 2, 2, 0.95);
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); - removed for better browser compatibility */
   border-bottom: 1px solid rgba(192, 192, 192, 0.1);
   display: none;
 }
@@ -375,7 +375,7 @@ header::before {
 
 /* Dark theme for sections */
 .theme-dark {
-  background-image: url("../images/backgrounds/marble.black.jpg");
+  background-image: url("/images/backgrounds/marble.black.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -421,7 +421,7 @@ header::before {
 
 /* Light theme for sections */
 .theme-light {
-  background-image: url("../images/backgrounds/marble.white.jpg");
+  background-image: url("/images/backgrounds/marble.white.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -492,7 +492,7 @@ header::before {
   align-items: center;
   text-align: center;
   padding: 2rem;
-  background-image: url("../images/backgrounds/marble.splash.jpg");
+  background-image: url("/images/backgrounds/marble.splash.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -653,7 +653,7 @@ h2 {
   font-family: "Century Gothic", "CenturyGothic", "AppleGothic", sans-serif;
   font-weight: normal;
   line-height: 1.2;
-  word-break: break-word;
+  overflow-wrap: break-word;
   max-width: 120px;
   transition: color 0.3s ease;
 }
@@ -790,7 +790,7 @@ footer p {
 }
 
 .form-input:focus {
-  outline: none;
+  border: 2px solid var(--color-accent);
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px var(--color-accent-transparent);
 }
@@ -888,7 +888,7 @@ footer p {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }

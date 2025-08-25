@@ -3,17 +3,14 @@ export class WideNavigation {
   private readonly splashSection: HTMLElement | undefined;
 
   constructor() {
-    this.navTopTitle = document.querySelector("#nav-wide-title") as
-      | HTMLElement
-      | undefined;
-    this.splashSection = document.querySelector("#section-splash") as
-      | HTMLElement
-      | undefined;
+    const navTitle = document.querySelector("#nav-wide-title");
+    const splash = document.querySelector("#section-splash");
 
-    this.init();
+    this.navTopTitle = navTitle instanceof HTMLElement ? navTitle : undefined;
+    this.splashSection = splash instanceof HTMLElement ? splash : undefined;
   }
 
-  private init(): void {
+  init(): void {
     if (!this.navTopTitle || !this.splashSection) {
       console.error("Required navigation elements not found");
       return;

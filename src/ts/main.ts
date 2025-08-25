@@ -5,9 +5,10 @@ import { SmoothScroller } from "./scrolling.js";
 import { TeamsManager } from "./team.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const wideNav = new WideNavigation();
+  new WideNavigation().init();
   const narrowMenu = new NarrowMenu();
-  const smoothScroller = new SmoothScroller(narrowMenu);
-  const teamsManager = new TeamsManager();
-  const emailSubscription = new EmailSubscription();
+  narrowMenu.init();
+  new SmoothScroller(narrowMenu).init();
+  new TeamsManager().init();
+  new EmailSubscription().init();
 });

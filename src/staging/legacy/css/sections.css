@@ -1,0 +1,99 @@
+/* Main content container */
+main {
+  margin-top: 0; /* No margin needed in narrow mode since header is hidden */
+}
+
+.section-content {
+  /* TODO: think harder on when to override box-sizing */
+  box-sizing: content-box;
+  max-inline-size: var(--size-content-4);
+
+  margin-inline: auto;
+}
+
+/* Section Spacing */
+section {
+  padding: var(--size-fluid-4);
+}
+
+/* Theme-aware color handling */
+.theme-dark {
+  background-image: var(--theme-dark-image-background-normal);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
+  position: relative;
+}
+
+.theme-dark::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    transparent 100%
+  );
+  z-index: -1;
+}
+
+.theme-dark > * {
+  transform: scaleX(-1);
+  position: relative;
+  z-index: 1;
+}
+
+.theme-dark h2 {
+  color: var(--theme-dark-color-header);
+}
+
+.theme-dark p {
+  color: var(--theme-dark-color-text);
+}
+
+/* Light theme for sections */
+.theme-light {
+  background-image: var(--theme-light-image-background-normal);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
+  position: relative;
+}
+
+.theme-light::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(255, 255, 255, 1) 60%,
+    transparent 100%
+  );
+  z-index: -1;
+}
+
+.theme-light > * {
+  transform: scaleX(-1);
+  position: relative;
+  z-index: 1;
+}
+
+.theme-light h2 {
+  color: var(--theme-light-color-header);
+}
+
+.theme-light p {
+  color: var(--theme-light-color-text);
+}

@@ -1,0 +1,61 @@
+#section-splash {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/images/backgrounds/marble.splash.jpg");
+}
+
+#section-splash * {
+  font-family: var(--theme-splash-font-family);
+  text-transform: var(--theme-splash-transform);
+}
+
+/* DESIGN: Remove darkening overlay for splash section */
+#section-splash.theme-dark::before {
+  display: none;
+}
+
+#splash-logo {
+  margin-bottom: var(--font-size-6);
+}
+
+.logo-image {
+  width: min(90vw, 48em);
+  transition: opacity var(--ease-out-3);
+  filter: drop-shadow(var(--size-3) var(--size-3) var(--size-1) var(--gray-12));
+}
+
+#splash-coming {
+  font-size: var(--theme-splash-coming-font-size);
+  font-weight: var(--theme-splash-coming-font-weight);
+  margin-bottom: var(--font-size-4);
+}
+
+.theme-dark #splash-coming {
+  color: var(--theme-dark-color-coming);
+}
+
+.theme-light #splash-coming {
+  color: var(--theme-light-color-coming);
+}
+
+/* Splash Contact */
+#splash-contact {
+  font-size: var(--theme-splash-contact-font-size);
+  font-weight: var(--theme-splash-contact-font-weight);
+  display: inline-block;
+  background-color: var(--theme-splash-contact-color-background);
+  color: var(--theme-splash-contact-color-text);
+  padding: var(--font-size-0) var(--font-size-3);
+  border-radius: var(--radius-3);
+  text-decoration: none;
+  transition: background-color var(--ease-out-3);
+  margin-top: var(--font-size-3);
+}
+
+#splash-contact:hover {
+  background-color: var(--theme-splash-contact-color-hover);
+}

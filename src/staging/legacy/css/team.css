@@ -1,0 +1,86 @@
+/* Team Grid */
+
+/* Medallions Container */
+.medallions-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(var(--theme-team-medallion-size), 1fr)
+  );
+  gap: var(--size-5);
+  margin-top: var(--size-7);
+  max-width: 100%;
+}
+
+/* Medallion Wrapper */
+.medallion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--size-3);
+  cursor: pointer;
+  margin: 0;
+}
+
+/* Medallion Image */
+.medallion img {
+  width: var(--theme-team-medallion-size);
+  height: var(--theme-team-medallion-size);
+  border-radius: var(--radius-round);
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  border: var(--size-1) solid var(--gold-5);
+  transition:
+    transform 0.4s var(--ease-out-3),
+    box-shadow 0.4s var(--ease-out-3);
+  object-fit: cover;
+  filter: grayscale(80%);
+}
+
+.medallion:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 var(--size-10) var(--theme-color-hover);
+  filter: grayscale(50%);
+}
+
+/* Medallion Caption */
+figure.medallion figcaption {
+  font-size: var(--theme-caption-font-size);
+  text-align: center;
+  font-family: var(--theme-caption-font-family);
+  line-height: var(--font-lineheight-0);
+  overflow-wrap: break-word;
+  max-width: var(--theme-team-medallion-size);
+  transition: color 0.4s var(--ease-out-3);
+  margin: 0;
+}
+
+figure.medallion:hover figcaption {
+  color: var(--theme-color-hover);
+}
+
+/* Responsive medallion sizing */
+@media (max-width: 767px) {
+  .medallions-container {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  #section-team .medallions-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #section-partners .medallions-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.theme-dark figcaption {
+  color: var(--theme-dark-color-text);
+}
+
+.theme-light figcaption {
+  color: var(--theme-light-color-text);
+}

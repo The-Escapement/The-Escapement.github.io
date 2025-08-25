@@ -1,15 +1,19 @@
-import js from "@eslint/js";
 import html from "@html-eslint/eslint-plugin";
+import css from "@eslint/css";
+import xoTypeScriptSpace from "eslint-config-xo-typescript/space";
 import xo from "xo";
+import prettier from "eslint-config-prettier";
+import { fixupConfigRules } from "@eslint/compat";
+import preact from "eslint-config-preact";
+import type { Linter } from "eslint";
 
-export default [
-  js.configs.recommended,
-  ...xo.xoToEslintConfig([
-    {
-      space: true,
-      prettier: "compat",
-    },
-  ]),
+const config: Linter.Config[] = [
+  ...fixupConfigRules(preact).map((config) => ({
+    ...config,
+    files: ["**/*.{js,jsx,ts,tsx}"],
+  })),
+  ...xo.xoToEslintConfig(xoTypeScriptSpace),
+  prettier,
   {
     files: ["**/*.html"],
     ...html.configs["flat/recommended"],
@@ -53,4 +57,17 @@ export default [
       "@html-eslint/require-title": "error",
     },
   },
+  {
+    files: ["**/*.css"],
+    plugins: {
+      css,
+    },
+    language: "css/css",
+    rules: {
+      ...css.configs.recommended.rules,
+      "css/no-invalid-properties": ["error", { allowUnknownVariables: true }],
+    },
+  },
 ];
+
+export default config;

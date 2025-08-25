@@ -1,3 +1,13 @@
+type EmailJsGlobal = {
+  emailjs: {
+    send: (
+      service: string,
+      template: string,
+      parameters: Record<string, unknown>,
+    ) => Promise<void>;
+  };
+};
+
 export class EmailSubscription {
   private readonly subscriptionForm: HTMLFormElement | undefined;
   private fullNameInput: HTMLInputElement | undefined;
@@ -13,13 +23,12 @@ export class EmailSubscription {
     const form = document.querySelector("#subscription-form");
     if (form instanceof HTMLFormElement) {
       this.subscriptionForm = form;
-      this.init();
     } else {
       console.error("Subscription form not found");
     }
   }
 
-  private init(): void {
+  init(): void {
     if (!this.subscriptionForm) {
       console.error("Subscription form not found");
       return;
@@ -172,8 +181,9 @@ export class EmailSubscription {
     };
 
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      await (globalThis as any).emailjs.send(
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+      const emailjsGlobal = globalThis as unknown as EmailJsGlobal;
+      await emailjsGlobal.emailjs.send(
         "default_service",
         "template_44wj4bp",
         templateParameters,

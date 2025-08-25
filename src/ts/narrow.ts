@@ -5,35 +5,31 @@ export class NarrowMenu {
   private readonly narrowLinks: NodeListOf<Element>;
 
   constructor() {
-    const menuButton = document.querySelector("#nav-narrow-button") as
-      | HTMLElement
-      | undefined;
-    const closeButton = document.querySelector("#nav-narrow-close") as
-      | HTMLElement
-      | undefined;
-    const overlay = document.querySelector("#nav-narrow-overlay") as
-      | HTMLElement
-      | undefined;
+    const menuButton = document.querySelector("#nav-narrow-button");
+    const closeButton = document.querySelector("#nav-narrow-close");
+    const overlay = document.querySelector("#nav-narrow-overlay");
 
-    this.narrowMenuButton = menuButton;
-    this.narrowCloseButton = closeButton;
-    this.narrowOverlay = overlay;
+    this.narrowMenuButton =
+      menuButton instanceof HTMLElement ? menuButton : undefined;
+    this.narrowCloseButton =
+      closeButton instanceof HTMLElement ? closeButton : undefined;
+    this.narrowOverlay = overlay instanceof HTMLElement ? overlay : undefined;
     this.narrowLinks = document.querySelectorAll(".nav-narrow-link");
-
-    this.init();
   }
 
   public closeNarrowMenu(): void {
-    this.narrowOverlay!.classList.remove("active");
-    this.narrowMenuButton!.classList.remove("active");
-    document.body.classList.remove("menu-open");
+    if (this.narrowOverlay && this.narrowMenuButton) {
+      this.narrowOverlay.classList.remove("active");
+      this.narrowMenuButton.classList.remove("active");
+      document.body.classList.remove("menu-open");
+    }
   }
 
   public isOpen(): boolean {
-    return this.narrowOverlay!.classList.contains("active");
+    return this.narrowOverlay?.classList.contains("active") ?? false;
   }
 
-  private init(): void {
+  init(): void {
     if (
       !this.narrowMenuButton ||
       !this.narrowCloseButton ||
@@ -47,8 +43,16 @@ export class NarrowMenu {
   }
 
   private setupEventListeners(): void {
+    if (
+      !this.narrowMenuButton ||
+      !this.narrowCloseButton ||
+      !this.narrowOverlay
+    ) {
+      return;
+    }
+
     // Toggle narrow menu
-    this.narrowMenuButton!.addEventListener("click", () => {
+    this.narrowMenuButton.addEventListener("click", () => {
       if (this.narrowOverlay!.classList.contains("active")) {
         this.closeNarrowMenu();
       } else {
@@ -57,12 +61,12 @@ export class NarrowMenu {
     });
 
     // Close narrow menu
-    this.narrowCloseButton!.addEventListener("click", () => {
+    this.narrowCloseButton.addEventListener("click", () => {
       this.closeNarrowMenu();
     });
 
     // Close when clicking overlay
-    this.narrowOverlay!.addEventListener("click", (event) => {
+    this.narrowOverlay.addEventListener("click", (event) => {
       if (event.target === this.narrowOverlay) {
         this.closeNarrowMenu();
       }
@@ -77,8 +81,10 @@ export class NarrowMenu {
   }
 
   private openNarrowMenu(): void {
-    this.narrowOverlay!.classList.add("active");
-    this.narrowMenuButton!.classList.add("active");
-    document.body.classList.add("menu-open");
+    if (this.narrowOverlay && this.narrowMenuButton) {
+      this.narrowOverlay.classList.add("active");
+      this.narrowMenuButton.classList.add("active");
+      document.body.classList.add("menu-open");
+    }
   }
 }

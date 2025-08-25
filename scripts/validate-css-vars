@@ -1,0 +1,158 @@
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+staging_defs() {
+  rg \
+    --type css \
+    --no-filename \
+    --no-line-number \
+    --no-ignore-vcs \
+    --only-matching \
+    --replace='${1}' \
+    -- \
+    '(--[a-zA-Z0-9_-]*)[:]' \
+    "$PROJECT_ROOT/src/staging" \
+    "$PROJECT_ROOT/node_modules/open-props/open-props.min.css"
+}
+
+prod_defs() {
+  rg \
+    --type css \
+    --no-filename \
+    --no-line-number \
+    --only-matching \
+    --replace='${1}' \
+    --glob '!**/staging/**' \
+    -- \
+    '(--[a-zA-Z0-9_-]*)[:]' \
+    "$PROJECT_ROOT/src"
+}
+
+prod_refs() {
+  rg \
+    --type css \
+    --type html \
+    --type ts \
+    --with-filename \
+    --line-number \
+    --glob '!**/staging/**' \
+    -- \
+    'var\(--[a-zA-Z0-9_-]*\)' \
+    "$PROJECT_ROOT/src"
+}
+
+staging_refs() {
+  rg \
+    --type css \
+    --type html \
+    --type ts \
+    --with-filename \
+    --line-number \
+    -- \
+    'var\(--[a-zA-Z0-9_-]*\)' \
+    "$PROJECT_ROOT/src/staging"
+}
+
+extract_var_names() {
+  rg -o 'var\((--[a-zA-Z0-9_-]*)\)' -r '${1}' -- -
+}
+
+validate_environment() {
+  local env_name="$1"
+  local -n refs_array="$2"
+  local -n defined_array="$3"
+
+  local -a undefined_vars
+  local ref_line
+  local var_names
+  local var_name
+
+  undefined_vars=()
+
+  echo "Validating $env_name environment..."
+
+  for ref_line in "${refs_array[@]}"; do
+    if [ -n "$ref_line" ]; then
+      mapfile -t var_names < <(printf "%s" "$ref_line" | extract_var_names)
+      for var_name in "${var_names[@]}"; do
+        if [ -n "$var_name" ]; then
+          if ! [[ " ${defined_array[*]} " =~ ${var_name} ]]; then
+            undefined_vars+=("$ref_line")
+            break
+          fi
+        fi
+      done
+    fi
+  done
+
+  if [ ${#undefined_vars[@]} -gt 0 ]; then
+    echo "ERROR: Found ${#undefined_vars[@]} undefined variables in $env_name:"
+    printf '%s\n' "${undefined_vars[@]}"
+    echo
+    return 1
+  else
+    echo "All variables in $env_name are properly defined!"
+    return 0
+  fi
+}
+
+main() {
+  echo "CSS Variable Validator"
+  echo "======================"
+  echo
+  echo "Project root: $PROJECT_ROOT"
+  echo
+
+  local -a defined_prod
+  local -a defined_staging
+  local -a prod_refs_output
+  local -a staging_refs_output
+
+  mapfile -t defined_prod < <(prod_defs)
+  mapfile -t defined_staging < <(staging_defs)
+  mapfile -t prod_refs_output < <(prod_refs)
+  mapfile -t staging_refs_output < <(staging_refs)
+
+  echo "Production environment:"
+  echo "  - Defined variables: ${#defined_prod[@]}"
+  echo "  - Variable references: ${#prod_refs_output[@]}"
+  echo
+
+  echo "Staging environment:"
+  echo "  - Defined variables: ${#defined_staging[@]}"
+  echo "  - Variable references: ${#staging_refs_output[@]}"
+  echo
+
+  local prod_valid
+  local staging_valid
+
+  if validate_environment "production" "prod_refs_output" "defined_prod"; then
+    prod_valid=true
+  else
+    prod_valid=false
+  fi
+
+  echo
+
+  if validate_environment "staging" "staging_refs_output" "defined_staging"; then
+    staging_valid=true
+  else
+    staging_valid=false
+  fi
+
+  echo
+
+  if [ "$prod_valid" = true ] && [ "$staging_valid" = true ]; then
+    echo "SUCCESS: All CSS variables are properly defined"
+  else
+    echo "ERROR: undefined CSS variable(s) referenced"
+    exit 1
+  fi
+}
+
+main "$@"

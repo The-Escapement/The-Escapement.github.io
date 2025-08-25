@@ -1,0 +1,63 @@
+:root {
+  /* Open Props Extensions */
+
+  --font-size-fluid-00: clamp(0.75rem, 0.675rem + 0.25vw, 0.875rem);
+  --font-sans: "Helvetica", "Arial", var(--font-neo-grotesque);
+  --font-gothic:
+    "Century Gothic", "CenturyGothic", "AppleGothic", var(--font-humanist);
+  --size-content-4: 75ch;
+  --size-px: 1px;
+  --gold-5: #d9c28d;
+  --gold-7: #92784d;
+
+  /* Site colors, typography, and images */
+
+  --theme-color-hover: var(--gold-5);
+  --theme-color-detail: var(--stone-6);
+  --theme-font-primary-family: var(--font-sans);
+  --theme-font-primary-transform: uppercase;
+  --theme-font-legible-family: var(--font-gothic);
+  --theme-font-legible-transform: lowercase;
+
+  --theme-dark-color-accent: var(--gold-5);
+  --theme-dark-color-background-bold: var(--gray-12);
+  --theme-dark-color-background-legible: var(--gray-9);
+  --theme-dark-color-text-emphasized: var(--gray-1);
+  --theme-dark-color-text-legible: var(--gray-2);
+  --theme-dark-color-text-secondary: var(--gray-3);
+  --theme-dark-image-background-normal: url("/images/backgrounds/marble.black.jpg");
+  --theme-dark-image-background-splash: url("/images/backgrounds/marble.splash.jpg");
+
+  --theme-light-color-accent: var(--gold-7);
+  --theme-light-color-background-bold: var(--gray-0);
+  --theme-light-color-background-legible: var(--gray-0);
+  --theme-light-color-text-emphasized: var(--gray-8);
+  --theme-light-color-text-legible: var(--gray-8);
+  --theme-light-color-text-secondary: var(--gray-8);
+  --theme-light-image-background-normal: url("/images/backgrounds/marble.white.jpg");
+  --theme-light-image-background-splash: url("/images/backgrounds/marble.splash.jpg");
+
+  --theme-splash-coming-font-size: var(--font-size-fluid-2);
+  --theme-splash-contact-font-size: var(--font-size-fluid-0);
+  --theme-splash-contact-color-background: var(--gold-5);
+  --theme-splash-contact-color-hover: var(--gold-7);
+  --theme-splash-contact-color-text: var(--gray-8);
+  --theme-splash-logo: url(/images/logos/stacked.gold.svg);
+
+  /* For Every Layout component defaults */
+
+  --border-thin: unset; /* defaults to 1px */
+  --color-dark: var(--theme-dark-color-background-legible);
+  --color-light: var(--theme-light-color-background-legible);
+  --item-width: unset; /* only used in reel-l; set when using */
+  --measure: var(--size-content-4); /* max readable line width */
+  --s1: var(--size-3); /* used by a few components; may be an okay default */
+  --sidebar-width: unset; /* defaults to content width */
+
+  /* Used in *-l components in index.html */
+
+  --layout-header-padding: var(--size-2);
+  --layout-footer-padding: var(--size-2);
+  --layout-section-padding: var(--size-fluid-4);
+  --layout-splash-space: var(--size-8);
+}

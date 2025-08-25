@@ -4,11 +4,15 @@
   inputs = {
     devshell.url = "github:numtide/devshell";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nixpkgs-stable-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
-    nixpkgs-stable-linux.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    # REVISIT: Coupling to nix-project to save /nix/store space
+    nix-project.url = "github:shajra/nix-project";
+    #nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    #nixpkgs-stable-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
+    #nixpkgs-stable-linux.url = "github:NixOS/nixpkgs/nixos-25.05";
+    #nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
@@ -16,7 +20,11 @@
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        nix/module/nixpkgs.nix
+
+        # REVISIT: Coupling to nix-project to save /nix/store space
+        inputs.nix-project.flakeModules.nixpkgs
+        #nix/module/nixpkgs.nix
+
         inputs.devshell.flakeModule
         inputs.treefmt-nix.flakeModule
       ];
@@ -38,7 +46,7 @@
             pnpmDeps = nixpkgs.unstable.pnpm_10.fetchDeps {
               inherit (finalAttrs) pname version src;
               fetcherVersion = 2;
-              hash = "sha256-C0VmNWawM3ssH667fdDOiMXfhCtLLVXEeiKe7XXCMis=";
+              hash = "sha256-JAGpGhXpB1RdrbHWgfP6oIo9ctcD1Q6iOfppv2K1mSo=";
             };
             buildPhase = ''pnpm run build '';
             checkPhase = ''pnpm run lint '';
@@ -48,6 +56,7 @@
           });
         in
         {
+          _module.args.pkgs = nixpkgs.unstable;
           legacyPackages.nixpkgs = nixpkgs;
           packages.site = site;
           packages.default = site;
@@ -65,6 +74,8 @@
             nixfmt.enable = true;
             nixf-diagnose.enable = true;
             prettier.enable = true;
+            shfmt.enable = true;
+            shfmt.includes = [ "scripts/*" ];
           };
           treefmt.settings.global.excludes = [
             "pnpm-lock.yaml"
