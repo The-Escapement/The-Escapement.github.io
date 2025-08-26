@@ -22,19 +22,19 @@ h3 {
 
 h2 {
   max-width: var(--size-header-1);
-  font-size: var(--font-size-6);
+  font-size: var(--s2);
   font-weight: var(--font-weight-7);
 }
 
 h3 {
   max-width: var(--size-header-3);
-  font-size: var(--font-size-3);
+  font-size: var(--s1);
   font-weight: var(--font-weight-5);
 }
 
 p,
 a {
-  font-size: var(--font-size-fluid-1);
+  font-size: var(--s0);
 }
 
 a {
@@ -68,7 +68,7 @@ figcaption {
 }
 
 #splash-coming {
-  font-size: var(--theme-splash-coming-font-size);
+  font-size: var(--s2);
   font-weight: var(--theme-splash-coming-font-weight);
 }
 
@@ -82,7 +82,7 @@ section.theme-light #splash-coming {
 
 #splash-contact {
   text-decoration: none;
-  font-size: var(--font-size-fluid-0);
+  font-size: var(--s0);
   font-weight: var(--font-weight-5);
   color: var(--theme-splash-contact-color-text);
 }
@@ -101,7 +101,7 @@ footer {
 
 footer * {
   color: var(--theme-dark-color-text-legible);
-  font-size: var(--font-size-fluid-00);
+  font-size: var(--s-2);
 }
 
 section.theme-dark {

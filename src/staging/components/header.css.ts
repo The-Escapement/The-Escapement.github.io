@@ -28,7 +28,7 @@ globalStyle(`${header} img:hover`, {
 globalStyle(`${header} ${navLinks} a`, {
   color: "var(--theme-dark-color-text-legible)",
   textDecoration: "none",
-  fontSize: "var(--font-size-fluid-0)",
+  fontSize: "var(--s0)",
   transition: "color var(--ease-out-3)",
 });
 
