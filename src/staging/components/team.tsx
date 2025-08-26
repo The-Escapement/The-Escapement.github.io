@@ -17,7 +17,7 @@ export default function Team({ teamType, perRow }: TeamProps) {
   return (
     <grid-l
       className={gridClass}
-      min={`calc(min(var(--measure), 100vh) / ${perRow} - var(--size-7))`}
+      min={`calc(min(var(--measure), 100vw) / ${perRow} - var(--size-7))`}
       space="var(--size-7)"
     >
       {handles.map((handle, index) => {
