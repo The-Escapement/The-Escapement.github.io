@@ -85,6 +85,8 @@ section.theme-light #splash-coming {
   font-size: var(--s0);
   font-weight: var(--font-weight-5);
   color: var(--theme-splash-contact-color-text);
+  white-space: normal;
+  text-align: center;
 }
 
 #splash-contact:hover {
