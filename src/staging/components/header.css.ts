@@ -2,6 +2,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { style, globalStyle } from "@vanilla-extract/css";
 
+const headerBreakpoint = "730px";
+
 const header = style({
   position: "fixed",
   zIndex: "var(--layer-1)",
@@ -42,7 +44,7 @@ globalStyle(`${header} .mantine-Burger-root`, {
   },
   visibility: "hidden",
   "@media": {
-    "(max-width: 600px)": {
+    [`(max-width: ${headerBreakpoint})`]: {
       visibility: "visible",
     },
   },
@@ -56,7 +58,7 @@ globalStyle(`${header} .mantine-Burger-root:hover`, {
 
 globalStyle(`${header} ${navLinks}`, {
   "@media": {
-    "(max-width: 600px)": {
+    [`(max-width: ${headerBreakpoint})`]: {
       position: "absolute",
       top: "100%",
       right: 0,
@@ -80,7 +82,7 @@ globalStyle(`${header} ${navLinks}`, {
 
 globalStyle(`${header} ${navLinks}.menu-opened`, {
   "@media": {
-    "(max-width: 600px)": {
+    [`(max-width: ${headerBreakpoint})`]: {
       opacity: 1,
       transform: "scaleY(1)",
       visibility: "visible",
@@ -90,7 +92,7 @@ globalStyle(`${header} ${navLinks}.menu-opened`, {
 
 globalStyle(`${header} ${navLinks}:not(.menu-opened)`, {
   "@media": {
-    "(max-width: 600px)": {
+    [`(max-width: ${headerBreakpoint})`]: {
       opacity: 0,
       transform: "scaleY(0)",
       visibility: "hidden",
@@ -100,7 +102,7 @@ globalStyle(`${header} ${navLinks}:not(.menu-opened)`, {
 
 globalStyle(`${header} ${navLinks} cluster-l`, {
   "@media": {
-    "(max-width: 600px)": {
+    [`(max-width: ${headerBreakpoint})`]: {
       flexDirection: "column",
       flexWrap: "nowrap",
     },
