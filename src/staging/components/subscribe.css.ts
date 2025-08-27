@@ -1,6 +1,6 @@
 import { style, globalStyle } from "@vanilla-extract/css";
 
-const form = style({});
+export const form = style({});
 
 globalStyle(`${form} input, ${form} button`, {
   width: "100%",

@@ -18,6 +18,7 @@ type SectionSplashProps = {
   id?: string;
   "aria-label"?: string;
   space?: string;
+  className?: string;
   children: ReactNode;
 };
 
@@ -62,6 +63,7 @@ function SectionSplash({
   id,
   "aria-label": ariaLabel,
   space = "var(--layout-splash-space)",
+  className,
   children,
 }: SectionSplashProps) {
   const theme = useSectionTheme();
@@ -70,7 +72,7 @@ function SectionSplash({
     <section
       id={id}
       aria-label={ariaLabel}
-      className={`section-splash ${theme}`}
+      className={`section-splash ${theme} ${className ?? ''}`}
     >
       <center-l and-text={true} intrinsic={true}>
         <stack-l space={space}>{children}</stack-l>

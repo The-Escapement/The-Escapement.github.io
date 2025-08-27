@@ -6,6 +6,7 @@ import Subscribe from "./subscribe.tsx";
 import Section from "./section.tsx";
 import Team from "./team.tsx";
 import Header from "./header.tsx";
+import { splashSection, splashComing } from "./splash.css";
 
 export default function App() {
   const { ref, inViewport } = useInViewport();
@@ -28,23 +29,20 @@ export default function App() {
       <main>
         <Section.Root startTheme="theme-dark" alternateTheme="theme-light">
           <Box ref={ref}>
-            <Section.Splash id="section-splash" aria-labelledby="title-hero">
+            <Section.Splash id="section-splash" className={splashSection} aria-labelledby="title-hero">
               <h1 id="title-splash" className="sr-only">
                 Welcome To The Escapement
               </h1>
               <img
-                id="splash-logo"
                 src="/images/logos/stacked.gold.svg"
                 alt="The Escapement"
               />
-              <p id="splash-coming">Coming Soon – 2026</p>
+              <p className={splashComing}>Coming Soon – 2026</p>
               <center-l>
                 <Button
                   id="splash-contact"
                   component="a"
                   href="#section-contact"
-                  radius="lg"
-                  size="lg"
                 >
                   Contact us for more info →
                 </Button>

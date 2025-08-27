@@ -50,50 +50,7 @@ figcaption {
   text-transform: var(--theme-font-legible-transform);
 }
 
-#section-splash {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background-image: url("/images/backgrounds/marble.splash.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
-  filter: brightness(1.1);
-}
 
-#splash-logo {
-  width: min(95vw, 50em);
-  filter: drop-shadow(var(--size-3) var(--size-3) var(--size-3) var(--gray-12));
-}
-
-#splash-coming {
-  font-size: var(--s2);
-  font-weight: var(--theme-splash-coming-font-weight);
-  max-width: 100vw;
-}
-
-section.theme-dark #splash-coming {
-  color: var(--theme-dark-color-text-emphasized);
-}
-
-section.theme-light #splash-coming {
-  color: var(--theme-light-color-text-emphasized);
-}
-
-#splash-contact {
-  text-decoration: none;
-  font-size: var(--s0);
-  font-weight: bold;
-  color: var(--theme-splash-contact-color-text);
-  max-width: 100vw;
-  white-space: normal;
-  text-align: center;
-}
-
-#splash-contact:hover {
-  background-color: var(--theme-splash-contact-color-hover);
-}
 
 html {
   scroll-behavior: smooth;

@@ -1,4 +1,4 @@
-import { gridClass } from "./team.css.ts";
+import { grid } from "./team.css.ts";
 import config from "~config";
 
 type TeamType = "core" | "partners";
@@ -16,7 +16,7 @@ export default function Team({ teamType, perRow }: TeamProps) {
 
   return (
     <grid-l
-      className={gridClass}
+      className={grid}
       min={`calc(min(var(--measure), 100vw) / ${perRow} - var(--size-7))`}
       space="var(--size-7)"
     >
