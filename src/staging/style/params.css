@@ -1,7 +1,40 @@
+/* Custom Font Declarations */
+@font-face {
+  font-family: "Century Gothic";
+  src: url("/fonts/century_gothic.regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Century Gothic";
+  src: url("/fonts/century_gothic.bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nimbus Sans L";
+  src: url("/fonts/nimbus_sans_l.regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nimbus Sans L";
+  src: url("/fonts/nimbus_sans_l.bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Open Props Extensions */
 
-  --font-sans: "Helvetica", "Arial", var(--font-neo-grotesque);
+  --font-sans: "Nimbus Sans L", "Helvetica", "Arial", var(--font-neo-grotesque);
   --font-gothic:
     "Century Gothic", "CenturyGothic", "AppleGothic", var(--font-humanist);
   --size-content-4: 75ch;
@@ -27,9 +60,12 @@
 
   --theme-color-hover: var(--gold-5);
   --theme-color-detail: var(--stone-6);
-  --theme-font-primary-family: var(--font-sans);
+  --theme-font-primary-family: "Nimbus Sans L", var(--font-sans);
   --theme-font-primary-transform: uppercase;
-  --theme-font-legible-family: var(--font-gothic);
+  --theme-font-bold-family: "Nimbus Sans L", var(--font-sans);
+  --theme-font-bold-weight: bold;
+  --theme-font-bold-transform: uppercase;
+  --theme-font-legible-family: "Century Gothic", var(--font-gothic);
   --theme-font-legible-transform: lowercase;
 
   --theme-dark-color-accent: var(--gold-5);
