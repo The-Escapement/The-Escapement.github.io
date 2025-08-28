@@ -8,13 +8,31 @@ import Team from "./team.tsx";
 import Header from "./header.tsx";
 import { splashSection, splashComing } from "./splash.css";
 
-export default function App() {
+type Feature = "logos";
+type Env = "staging" | "production";
+
+type AppProps = {
+  features: Feature[];
+  env: Env;
+};
+
+const logos = (
+  <Section.Content id="section-sponsors" aria-labelledby="title-sponsors">
+    <h2 id="title-sponsors">Sponsors</h2>
+    <p>Thanks to our sponsors!</p>
+  </Section.Content>
+);
+
+export default function App({ features, env = "production" }: AppProps) {
   const { ref, inViewport } = useInViewport();
 
   const navigationItems = [
     { href: "#section-about", display: "About" },
     { href: "#section-team", display: "Team" },
     { href: "#section-partners", display: "Partners" },
+    ...(features.includes("logos")
+      ? [{ href: "#section-sponsors", display: "Sponsors" }]
+      : []),
     { href: "#section-contact", display: "Contact" },
   ];
 
@@ -29,14 +47,15 @@ export default function App() {
       <main>
         <Section.Root startTheme="theme-dark" alternateTheme="theme-light">
           <Box ref={ref}>
-            <Section.Splash id="section-splash" className={splashSection} aria-labelledby="title-hero">
+            <Section.Splash
+              id="section-splash"
+              className={splashSection}
+              aria-labelledby="title-hero"
+            >
               <h1 id="title-splash" className="sr-only">
                 Welcome To The Escapement
               </h1>
-              <img
-                src="/images/logos/stacked.gold.svg"
-                alt="The Escapement"
-              />
+              <img src="/images/logos/stacked.gold.svg" alt="The Escapement" />
               <p className={splashComing}>Coming Soon – 2026</p>
               <center-l>
                 <Button
@@ -89,10 +108,12 @@ export default function App() {
             <Team teamType="partners" perRow={4} />
           </Section.Content>
 
+          {features.includes("logos") && logos}
+
           <Section.Content id="section-contact" aria-labelledby="title-contact">
             <h2 id="title-contact">Contact</h2>
             <sidebar-l side="right" sideWidth="40%" space="var(--size-8)">
-              <Subscribe />
+              <Subscribe env={env} />
               <stack-l>
                 <p>Or email us directly:</p>
                 <p>

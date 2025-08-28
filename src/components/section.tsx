@@ -72,7 +72,7 @@ function SectionSplash({
     <section
       id={id}
       aria-label={ariaLabel}
-      className={`section-splash ${theme} ${className ?? ''}`}
+      className={`section-splash ${theme} ${className ?? ""}`}
     >
       <center-l and-text={true} intrinsic={true}>
         <stack-l space={space}>{children}</stack-l>

@@ -50,8 +50,6 @@ figcaption {
   text-transform: var(--theme-font-legible-transform);
 }
 
-
-
 html {
   scroll-behavior: smooth;
 }

@@ -3,13 +3,18 @@ import { Button } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import emailjs from "@emailjs/browser";
 import css from "./subscribe.css.ts";
+import config from "~config";
 
 type FormValues = {
   fullName: string;
   email: string;
 };
 
-export default function Subscribe() {
+type SubscribeProps = {
+  env: "staging" | "production";
+};
+
+export default function Subscribe({ env }: SubscribeProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -43,14 +48,16 @@ export default function Subscribe() {
 
     try {
       await emailjs.send(
-        "default_service",
-        "template_52c7x7l",
+        config.subscribe.service,
+        env === "staging"
+          ? config.subscribe.template.staging
+          : config.subscribe.template.production,
         {
           name: values.fullName.trim(),
           email: values.email.trim(),
         },
         {
-          publicKey: "zmPgTLf8Ez28MtmHD",
+          publicKey: config.subscribe.publicKey,
         },
       );
 

@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
-import App from "../components/app.tsx";
-import { registerAllElements } from "../elements/index.ts";
+import App from "./components/app.tsx";
+import { registerAllElements } from "./elements/index.ts";
 
 if (globalThis.window !== undefined) {
   registerAllElements();
@@ -9,5 +9,5 @@ if (globalThis.window !== undefined) {
 const container = document.querySelector("#app");
 if (container) {
   const root = createRoot(container);
-  root.render(<App features={["logos"]} env="staging" />);
+  root.render(<App features={[]} env="production" />);
 }
