@@ -27,6 +27,9 @@ jobs:
           # DESIGN: matching current in NixOS 25.05
           install_url: https://releases.nixos.org/nix/nix-2.28.4/install
 
+      - name: Setup FlakeHub cache
+        uses: DeterminateSystems/flakehub-cache-action@main
+
       - name: Build site
         run: nix build .#site
 
