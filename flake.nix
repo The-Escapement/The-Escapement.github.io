@@ -64,9 +64,10 @@
             config.treefmt.build.wrapper
             nixpkgs.unstable.instaloader
             nixpkgs.unstable.nodejs_24
-            nixpkgs.unstable.prettier
             nixpkgs.unstable.pnpm_10
+            nixpkgs.unstable.prettier
             nixpkgs.unstable.typescript-language-server
+            nixpkgs.unstable.wrangler
           ];
           treefmt.pkgs = nixpkgs.unstable;
           treefmt.programs = {
