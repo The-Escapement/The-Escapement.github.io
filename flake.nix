@@ -35,31 +35,50 @@
       perSystem =
         { nixpkgs, config, ... }:
         let
-          site = nixpkgs.unstable.stdenv.mkDerivation (finalAttrs: {
-            pname = "the-escapement";
-            version = "1.0.0";
-            src = ./.;
-            nativeBuildInputs = [
-              nixpkgs.unstable.nodejs_24
-              nixpkgs.unstable.pnpm_10.configHook
-            ];
-            pnpmDeps = nixpkgs.unstable.pnpm_10.fetchDeps {
-              inherit (finalAttrs) pname version src;
-              fetcherVersion = 2;
-              hash = "sha256-HDxfpJx7K0iuMPBCV9xzhqyAA8IZQm5zEmeD3YTJvpU=";
-            };
-            buildPhase = ''pnpm run build '';
-            checkPhase = ''pnpm run lint '';
-            installPhase = ''cp -r dist $out '';
-            dontPatchShebangs = true;
-            dontStrip = true;
-          });
+          site =
+            type:
+            nixpkgs.unstable.stdenv.mkDerivation (finalAttrs: {
+              pname = "the-escapement";
+              version = "1.0.0";
+              src = nixpkgs.unstable.lib.sources.sourceByRegex ./. [
+                ".htmlhintrc"
+                "eslint\.config\.ts"
+                "package\.json"
+                "pnpm-lock\.yaml"
+                "pnpm-workspace\.yaml"
+                "postcss\.config\.ts"
+                "tsconfig\.json"
+                "vite\.config\.ts"
+                "src/.*"
+                "public/.*"
+                "types/.*"
+              ];
+              nativeBuildInputs = [
+                nixpkgs.unstable.nodejs_24
+                nixpkgs.unstable.pnpm_10.configHook
+              ];
+              pnpmDeps = nixpkgs.unstable.pnpm_10.fetchDeps {
+                inherit (finalAttrs) pname version src;
+                fetcherVersion = 2;
+                hash = "sha256-njEkWfIf82TsouRuz7aW+NSmyeD049CmJXRXpGnCZ/k=";
+              };
+              buildPhase = ''pnpm run build:${type} '';
+              checkPhase = ''pnpm run lint '';
+              installPhase = ''cp -r dist $out '';
+              dontPatchShebangs = true;
+              dontStrip = true;
+            });
         in
         {
           _module.args.pkgs = nixpkgs.unstable;
           legacyPackages.nixpkgs = nixpkgs;
-          packages.site = site;
-          packages.default = site;
+          packages.site-prod = site "prod";
+          packages.site-staging = site "staging";
+          packages.site-dev = site "dev";
+          packages.default = site "prod";
+          checks.site-prod = site "prod";
+          checks.site-staging = site "staging";
+          checks.site-dev = site "dev";
           devshells.default.packages = [
             config.treefmt.build.wrapper
             nixpkgs.unstable.instaloader

@@ -1,11 +1,30 @@
+import { match } from "ts-pattern";
+
+export type Feature = "logos";
+export type Mode = "development" | "staging" | "production";
+
+export const mode: Mode = match(import.meta.env.MODE)
+  .with("development", () => "development" as const)
+  .with("dev", () => "development" as const)
+  .with("production", () => "production" as const)
+  .with("prod", () => "production" as const)
+  .with("staging", () => "staging" as const)
+  .otherwise(() => {
+    throw new Error(`Invalid mode: ${import.meta.env.MODE}`);
+  });
+
+// DESIGN: features should only hide work from production.
+export const features: Feature[] = match(mode)
+  .with("development", () => ["logos" as const])
+  .otherwise(() => []);
+
 const config = {
+  mode,
+  features,
   subscribe: {
     service: "default_service",
     publicKey: "zmPgTLf8Ez28MtmHD",
-    template: {
-      staging: "template_52c7x7l",
-      production: "template_44wj4bp",
-    },
+    template: mode === "production" ? "template_44wj4bp" : "template_52c7x7l",
   },
   team: {
     core: [

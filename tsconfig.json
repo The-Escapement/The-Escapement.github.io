@@ -5,6 +5,10 @@
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "jsxImportSource": "react",
+    "types": ["vite/client"],
+    "paths": {
+      "~config": ["config.ts"]
+    },
 
     "allowImportingTsExtensions": true,
     "declaration": true,
@@ -25,10 +29,7 @@
     "strict": true,
     "stripInternal": true,
     "useDefineForClassFields": true,
-    "baseUrl": "./src",
-    "paths": {
-      "~config": ["config.ts"]
-    }
+    "baseUrl": "./src"
   },
   "include": [
     "src/**/*",

@@ -10,11 +10,7 @@ type FormValues = {
   email: string;
 };
 
-type SubscribeProps = {
-  env: "staging" | "production";
-};
-
-export default function Subscribe({ env }: SubscribeProps) {
+export default function Subscribe() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -49,9 +45,7 @@ export default function Subscribe({ env }: SubscribeProps) {
     try {
       await emailjs.send(
         config.subscribe.service,
-        env === "staging"
-          ? config.subscribe.template.staging
-          : config.subscribe.template.production,
+        config.subscribe.template,
         {
           name: values.fullName.trim(),
           email: values.email.trim(),

@@ -7,14 +7,7 @@ import Section from "./section.tsx";
 import Team from "./team.tsx";
 import Header from "./header.tsx";
 import { splashSection, splashComing } from "./splash.css";
-
-type Feature = "logos";
-type Env = "staging" | "production";
-
-type AppProps = {
-  features: Feature[];
-  env: Env;
-};
+import { features } from "~config";
 
 const logos = (
   <Section.Content id="section-sponsors" aria-labelledby="title-sponsors">
@@ -23,7 +16,7 @@ const logos = (
   </Section.Content>
 );
 
-export default function App({ features, env = "production" }: AppProps) {
+export default function App() {
   const { ref, inViewport } = useInViewport();
 
   const navigationItems = [
@@ -113,7 +106,7 @@ export default function App({ features, env = "production" }: AppProps) {
           <Section.Content id="section-contact" aria-labelledby="title-contact">
             <h2 id="title-contact">Contact</h2>
             <sidebar-l side="right" sideWidth="40%" space="var(--size-8)">
-              <Subscribe env={env} />
+              <Subscribe />
               <stack-l>
                 <p>Or email us directly:</p>
                 <p>

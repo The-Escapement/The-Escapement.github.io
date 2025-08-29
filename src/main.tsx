@@ -9,5 +9,5 @@ if (globalThis.window !== undefined) {
 const container = document.querySelector("#app");
 if (container) {
   const root = createRoot(container);
-  root.render(<App features={[]} env="production" />);
+  root.render(<App />);
 }

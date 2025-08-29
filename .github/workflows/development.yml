@@ -13,30 +13,34 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy-preview:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Nix
-        uses: cachix/install-nix-action@v31.5.1
-        with:
-          # DESIGN: matching current in NixOS 25.05
-          install_url: https://releases.nixos.org/nix/nix-2.28.4/install
-
-      - name: Setup FlakeHub cache
-        uses: DeterminateSystems/flakehub-cache-action@main
-
-      - name: Build site
-        run: nix build .#site
+      - name: Nix common steps
+        uses: ./.github/actions/preamble
+        id: build
 
       - name: Canonicalize names
         run: |
           BRANCH_NAME="${{ github.head_ref || github.ref_name }}"
           TAG=$(echo ${{ github.sha }} | cut -b -8)
           ALIAS=$(echo "$BRANCH_NAME" | tr './-' '_')
-          printf "TAG=%s\nALIAS=%s\n" "$TAG" "$ALIAS" >> $GITHUB_ENV
+
+          if [[ "$BRANCH_NAME" == staging ]]; then
+            BUILD="staging"
+          else
+            BUILD="dev"
+          fi
+
+          printf "TAG=%s\nALIAS=%s\nBUILD=%s\n" \
+            "$TAG" "$ALIAS" "$BUILD" >> "$GITHUB_ENV"
+
+      - name: Build site
+        run: |
+          nix --print-build-logs build ".#site-$BUILD"
 
       - name: Deploy to Cloudflare Pages
         env:
@@ -46,4 +50,5 @@ jobs:
           nix develop \
               --command wrangler versions upload \
               --tag "$TAG" \
-              --preview-alias "$ALIAS"
+              --preview-alias "$ALIAS" \
+              --env ""
