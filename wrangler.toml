@@ -4,6 +4,10 @@ compatibility_date = "2025-08-28"
 [assets]
 directory = "./result"
 
-[env.production.route]
+[[env.production.routes]]
 pattern = "theescapement.com"
+custom_domain = true
+
+[[env.production.routes]]
+pattern = "www.theescapement.com"
 custom_domain = true

@@ -1,4 +1,4 @@
-name: Deploy branches to Cloudflare Pages
+name: Deploy preview
 
 on:
   push:
