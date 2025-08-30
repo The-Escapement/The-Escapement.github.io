@@ -14,6 +14,12 @@ concurrency:
 
 jobs:
   ci:
+    environment:
+      name: cloudflare-preview
+      url: ${{ steps.deploy.outputs.preview_url }}
+    outputs:
+      preview_url: ${{ steps.deploy.outputs.preview_url }}
+      preview_alias_url: ${{ steps.deploy.outputs.preview_alias_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -40,6 +46,7 @@ jobs:
           flake-target: ".#site-$BUILD"
 
       - name: Deploy to Cloudflare Pages
+        id: deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -48,4 +55,26 @@ jobs:
               --command wrangler versions upload \
               --tag "$TAG" \
               --preview-alias "$ALIAS" \
-              --env ""
+              --env "" | tee \
+              >(grep -oE 'Version Preview URL: https://[^[:space:]]+' | \
+                sed 's/Version Preview URL: /preview_url=/' >> "$GITHUB_OUTPUT") \
+              >(grep -oE 'Version Preview Alias URL: https://[^[:space:]]+' | \
+                sed 's/Version Preview Alias URL: /preview_alias_url=/' >> "$GITHUB_OUTPUT")
+
+      - name: Show deployment URLs
+        run: |
+          echo "Version Preview URL: ${{ steps.deploy.outputs.preview_url }}"
+          echo "Version Preview Alias URL: ${{ steps.deploy.outputs.preview_alias_url }}"
+
+  # DESIGN: Dummy job to present the preview alias URL in the GitHub Actions UI
+  show-preview-alias:
+    needs: ci
+    runs-on: ubuntu-latest
+    environment:
+      name: cloudflare-preview
+      url: ${{ needs.ci.outputs.preview_alias_url }}
+    steps:
+      - name: Present both URLs
+        run: |
+          echo "Version Preview URL: ${{ needs.ci.outputs.preview_url }}"
+          echo "Version Preview Alias URL: ${{ needs.ci.outputs.preview_alias_url }}"
