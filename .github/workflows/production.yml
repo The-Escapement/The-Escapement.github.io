@@ -27,7 +27,7 @@ jobs:
       - name: Nix common steps
         uses: ./.github/actions/nix-build
         with:
-          flake-target: ".#site-$BUILD"
+          flake-target: ".#site-prod"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
