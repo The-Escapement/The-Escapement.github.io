@@ -40,19 +40,30 @@
             nixpkgs.unstable.stdenv.mkDerivation (finalAttrs: {
               pname = "the-escapement";
               version = "1.0.0";
-              src = nixpkgs.unstable.lib.sources.sourceByRegex ./. [
-                ".htmlhintrc"
-                "eslint\.config\.ts"
-                "package\.json"
-                "pnpm-lock\.yaml"
-                "pnpm-workspace\.yaml"
-                "postcss\.config\.ts"
-                "tsconfig\.json"
-                "vite\.config\.ts"
-                "src/.*"
-                "public/.*"
-                "types/.*"
-              ];
+              src =
+                let
+                  fs = nixpkgs.unstable.lib.fileset;
+                  fileset = fs.intersection (fs.gitTracked ./.) (
+                    fs.unions [
+                      # directories
+                      ./public
+                      ./src
+                      ./types
+                      # files
+                      ./.htmlhintrc
+                      ./eslint.config.ts
+                      ./package.json
+                      ./pnpm-lock.yaml
+                      ./postcss.config.ts
+                      ./tsconfig.json
+                      ./vite.config.ts
+                    ]
+                  );
+                in
+                fs.toSource {
+                  root = ./.;
+                  inherit fileset;
+                };
               nativeBuildInputs = [
                 nixpkgs.unstable.nodejs_24
                 nixpkgs.unstable.pnpm_10.configHook
