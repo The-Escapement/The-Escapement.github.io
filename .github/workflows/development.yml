@@ -19,10 +19,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Nix common steps
-        uses: ./.github/actions/preamble
-        id: build
-
       - name: Canonicalize names
         run: |
           BRANCH_NAME="${{ github.head_ref || github.ref_name }}"
@@ -38,9 +34,10 @@ jobs:
           printf "TAG=%s\nALIAS=%s\nBUILD=%s\n" \
             "$TAG" "$ALIAS" "$BUILD" >> "$GITHUB_ENV"
 
-      - name: Build site
-        run: |
-          nix --print-build-logs build ".#site-$BUILD"
+      - name: Nix build
+        uses: ./.github/actions/nix-build
+        with:
+          flake-target: ".#site-$BUILD"
 
       - name: Deploy to Cloudflare Pages
         env:

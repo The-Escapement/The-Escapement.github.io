@@ -1,5 +1,9 @@
-name: "Nix common steps"
-description: "Install/setup Nix and check flake"
+name: "Nix common build steps"
+description: "Install/setup Nix, check flake, and build target"
+inputs:
+  flake-target:
+    description: "Flake target to build (e.g., site-dev, site-staging)"
+    required: true
 runs:
   using: "composite"
   steps:
@@ -16,3 +20,8 @@ runs:
       shell: bash
       run: |
         nix --print-build-logs flake check
+
+    - name: Build site
+      shell: bash
+      run: |
+        nix --print-build-logs build "${{ inputs.flake-target }}"
