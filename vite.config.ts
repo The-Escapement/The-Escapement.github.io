@@ -6,7 +6,6 @@ import preact from "@preact/preset-vite";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import compression from "vite-plugin-compression2";
 import { dynamicChunkPlugin } from "vite-plugin-dynamic-chunk";
-import { imageToWebpPlugin } from "vite-plugin-image-to-webp";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -18,7 +17,6 @@ export default defineConfig(() => ({
       targets: ["defaults", "not IE 11"],
     }),
     dynamicChunkPlugin({}),
-    imageToWebpPlugin(),
     compression(),
   ],
   root: "src",
