@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 import legacy from "@vitejs/plugin-legacy";
 import preact from "@preact/preset-vite";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import compression from "vite-plugin-compression2";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -14,11 +15,12 @@ export default defineConfig(() => ({
     legacy({
       targets: ["defaults", "not IE 11"],
     }),
+    compression(),
   ],
   root: "src",
   build: {
     cssMinify: "lightningcss" as const,
-    outDir: "../dist",
+    outDir: resolve(__dirname, "dist"),
     emptyOutDir: true,
     rollupOptions: {
       input: {
@@ -33,7 +35,7 @@ export default defineConfig(() => ({
     },
   },
   css: {
-    postcss: "./postcss.config.ts",
+    postcss: resolve(__dirname, "postcss.config.ts"),
   },
   server: {
     port: 3000,
@@ -42,5 +44,5 @@ export default defineConfig(() => ({
       strict: false,
     },
   },
-  publicDir: "../public",
+  publicDir: resolve(__dirname, "public"),
 }));
