@@ -62,5 +62,8 @@
     "vite-plugin-compression2": "^2.2.1",
     "vite-plugin-dynamic-chunk": "^0.0.3",
     "xo": "^1.2.2"
+  },
+  "dependencies": {
+    "vite-plugin-image-to-webp": "^1.0.14"
   }
 }
