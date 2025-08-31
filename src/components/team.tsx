@@ -37,8 +37,8 @@ export default function Team({ teamType, perRow }: TeamProps) {
             <img
               src={
                 announceNow
-                  ? `/images/team/${handle}.jpg`
-                  : `/images/team/unannounced.jpg`
+                  ? `/images/team/${handle}.webp`
+                  : `/images/team/unannounced.webp`
               }
               alt={captionText}
             />

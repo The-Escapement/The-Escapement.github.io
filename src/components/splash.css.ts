@@ -14,7 +14,7 @@ export const splashComing = style({
 });
 
 globalStyle(`section.${splashSection}.theme-dark`, {
-  backgroundImage: 'url("/images/backgrounds/marble.splash.jpg")',
+  backgroundImage: "var(--theme-dark-image-background-splash)",
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -22,7 +22,7 @@ globalStyle(`section.${splashSection}.theme-dark`, {
 });
 
 globalStyle(`section.${splashSection}.theme-light`, {
-  backgroundImage: 'url("/images/backgrounds/marble.splash.jpg")',
+  backgroundImage: "var(--theme-light-image-background-splash)",
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",

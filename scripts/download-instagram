@@ -43,7 +43,6 @@ wei_koh_revolution
 
 echo "🚀 Starting Instagram profile picture download with login..."
 
-# Check if login credentials are provided
 if [ -z "$INSTAGRAM_USERNAME" ] || [ -z "$INSTAGRAM_PASSWORD" ]; then
   echo "❌ Please set INSTAGRAM_USERNAME and INSTAGRAM_PASSWORD environment variables"
   echo "Example: INSTAGRAM_USERNAME=your_username INSTAGRAM_PASSWORD=your_password ./scripts/download-instagram-with-login.sh"
@@ -64,8 +63,8 @@ for handle in $HANDLES; do
   # --request-timeout: Increase timeout to handle rate limiting
   # --max-connection-attempts: Increase retry attempts
 
-  if [ -e "public/images/team/$handle.jpg" ]; then
-    echo "✅ @$handle already downloaded"
+  if [ -e "public/images/team/$handle.webp" ]; then
+    echo "✅ @$handle already downloaded and converted"
     continue
   fi
 
@@ -84,6 +83,17 @@ for handle in $HANDLES; do
     --quiet \
     "$handle"; then
     echo "✅ Successfully downloaded @$handle"
+
+    if [ -f "public/images/team/$handle.jpg" ]; then
+      if magick "public/images/team/$handle.jpg" \
+        -quality 100 "public/images/team/$handle.webp"; then
+        mv "public/images/team/$handle.jpg" \
+          "public/images/team/$handle.webp"
+        echo "  ✅ Successfully converted @$handle to WebP"
+      else
+        echo "  ❌ Failed to convert @$handle to WebP"
+      fi
+    fi
   else
     echo "❌ Failed to download @$handle"
     # If we get rate limited, wait longer before the next attempt

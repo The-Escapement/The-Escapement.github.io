@@ -74,8 +74,8 @@
   --theme-dark-color-text-emphasized: var(--gray-1);
   --theme-dark-color-text-legible: var(--gray-2);
   --theme-dark-color-text-secondary: var(--gray-3);
-  --theme-dark-image-background-normal: url("/images/backgrounds/marble.black.jpg");
-  --theme-dark-image-background-splash: url("/images/backgrounds/marble.splash.jpg");
+  --theme-dark-image-background-normal: url("/images/backgrounds/marble.black.webp");
+  --theme-dark-image-background-splash: url("/images/backgrounds/marble.splash.webp");
 
   --theme-light-color-accent: var(--gold-7);
   --theme-light-color-background-bold: var(--gray-0);
@@ -83,8 +83,8 @@
   --theme-light-color-text-emphasized: var(--gray-8);
   --theme-light-color-text-legible: var(--gray-8);
   --theme-light-color-text-secondary: var(--gray-8);
-  --theme-light-image-background-normal: url("/images/backgrounds/marble.white.jpg");
-  --theme-light-image-background-splash: url("/images/backgrounds/marble.splash.jpg");
+  --theme-light-image-background-normal: url("/images/backgrounds/marble.white.webp");
+  --theme-light-image-background-splash: url("/images/backgrounds/marble.splash.webp");
 
   --theme-splash-contact-color-background: var(--gold-5);
   --theme-splash-contact-color-hover: var(--gold-7);
