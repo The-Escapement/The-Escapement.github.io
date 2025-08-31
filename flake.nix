@@ -71,7 +71,7 @@
               pnpmDeps = nixpkgs.unstable.pnpm_10.fetchDeps {
                 inherit (finalAttrs) pname version src;
                 fetcherVersion = 2;
-                hash = "sha256-nQr9tx9oF3GY+VTDxIqfsFB/ZmFxLmXr+K0RSz6HmU0=";
+                hash = "sha256-FZfKGpkdwVeIu91Uy33I6NbpxoH7YG9P2346fbPSwdI=";
               };
               buildPhase = ''pnpm run build:${type} '';
               checkPhase = ''pnpm run lint '';
