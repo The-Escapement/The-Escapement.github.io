@@ -32,8 +32,27 @@
     />
     <link rel="icon" href="/images/favicons/favicon.ico" />
     <link rel="manifest" href="/images/favicons/site.webmanifest" />
+    <style>
+      #quickload-skeleton {
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        background-image: url("/images/backgrounds/marble.splash.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      #app {
+        opacity: 0;
+        background-color: black;
+      }
+      #app.fade-in {
+        opacity: 1;
+      }
+    </style>
   </head>
   <body>
+    <div id="quickload-skeleton" role="presentation"></div>
     <div id="app"></div>
     <script type="module" src="./main.tsx"></script>
   </body>

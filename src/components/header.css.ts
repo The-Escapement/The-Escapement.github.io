@@ -1,6 +1,17 @@
 // DESIGN: Vanilla Extract DSL has its own naming conventions
 /* eslint-disable @typescript-eslint/naming-convention */
-import { style, globalStyle } from "@vanilla-extract/css";
+import { style, globalStyle, keyframes } from "@vanilla-extract/css";
+
+const headerDropDown = keyframes({
+  "0%": {
+    transform: "translateY(-100%)",
+    opacity: 0,
+  },
+  "100%": {
+    transform: "translateY(0)",
+    opacity: 1,
+  },
+});
 
 const headerBreakpoint = "730px";
 
@@ -9,6 +20,10 @@ const header = style({
   zIndex: "var(--layer-1)",
   background: "var(--theme-dark-color-background-bold)",
   borderBottom: "var(--size-px) solid var(--theme-color-detail)",
+  // DESIGN: Start hidden and drop down with React startup
+  transform: "translateY(-100%)",
+  opacity: 0,
+  animation: `${headerDropDown} 1s ease-out 1s forwards`,
 });
 
 const navLinks = style({});

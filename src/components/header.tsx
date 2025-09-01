@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { Box, Collapse, Burger } from "@mantine/core";
 import { useDisclosure, useClickOutside } from "@mantine/hooks";
 import css from "./header.css.ts";
@@ -9,12 +9,14 @@ type MenuItem = {
 };
 
 type HeaderProps = {
+  setHeaderMounted: (mounted: boolean) => void;
   logoHref: string;
   inViewport: boolean;
   navigationItems: MenuItem[];
 };
 
 export default function Header({
+  setHeaderMounted,
   logoHref,
   inViewport,
   navigationItems,
@@ -25,6 +27,10 @@ export default function Header({
   const [burger, setBurger] = useState<HTMLElement | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-restricted-types
   const [navLinks, setNavLinks] = useState<HTMLElement | null>(null);
+
+  useLayoutEffect(() => {
+    setHeaderMounted(true);
+  }, [setHeaderMounted]);
 
   useEffect(() => {
     if (menuOpened) {

@@ -1,4 +1,9 @@
-import { createContext, useContext, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  type ReactNode,
+  useLayoutEffect,
+} from "react";
 
 type SectionContextType = {
   startTheme: string;
@@ -16,6 +21,7 @@ type SectionRootProps = {
 
 type SectionSplashProps = {
   id?: string;
+  setSplashMounted: (mounted: boolean) => void;
   "aria-label"?: string;
   space?: string;
   className?: string;
@@ -61,12 +67,17 @@ function useSectionTheme() {
 
 function SectionSplash({
   id,
+  setSplashMounted,
   "aria-label": ariaLabel,
   space = "var(--layout-splash-space)",
   className,
   children,
 }: SectionSplashProps) {
   const theme = useSectionTheme();
+
+  useLayoutEffect(() => {
+    setSplashMounted(true);
+  }, [setSplashMounted]);
 
   return (
     <section

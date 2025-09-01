@@ -1,3 +1,4 @@
+import { useState, useLayoutEffect } from "react";
 import "@mantine/core/styles.css";
 import { MantineProvider, Box, Button } from "@mantine/core";
 import { useInViewport } from "@mantine/hooks";
@@ -18,6 +19,22 @@ const logos = (
 
 export default function App() {
   const { ref, inViewport } = useInViewport();
+  const [splashMounted, setSplashMounted] = useState<boolean>(false);
+  const [headerMounted, setHeaderMounted] = useState<boolean>(false);
+
+  useLayoutEffect(() => {
+    if (splashMounted && headerMounted) {
+      const app = document.querySelector("#app");
+      if (app) {
+        app.classList.add("fade-in");
+      }
+
+      const skeleton = document.querySelector("#quickload-skeleton");
+      if (skeleton) {
+        skeleton.remove();
+      }
+    }
+  }, [splashMounted, headerMounted]);
 
   const navigationItems = [
     { href: "#section-about", display: "About" },
@@ -32,15 +49,16 @@ export default function App() {
   return (
     <MantineProvider theme={theme}>
       <Header
+        setHeaderMounted={setHeaderMounted}
         logoHref="#section-splash"
         inViewport={inViewport}
         navigationItems={navigationItems}
       />
-
-      <main>
+      <main className={splashMounted && headerMounted ? "fade-in" : ""}>
         <Section.Root startTheme="theme-dark" alternateTheme="theme-light">
           <Box ref={ref}>
             <Section.Splash
+              setSplashMounted={setSplashMounted}
               id="section-splash"
               className={splashSection}
               aria-labelledby="title-hero"
