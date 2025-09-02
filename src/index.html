@@ -37,10 +37,6 @@
         width: 100vw;
         height: 100vh;
         background-color: black;
-        background-image: url("/images/backgrounds/marble.splash.webp");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
       }
       #app {
         opacity: 0;
@@ -48,6 +44,10 @@
       }
       #app.fade-in {
         opacity: 1;
+        transition: opacity 0.2s ease-in;
+      }
+      html body {
+        background-color: black;
       }
     </style>
   </head>
