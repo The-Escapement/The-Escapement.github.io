@@ -65,5 +65,11 @@
     "vite-plugin-dynamic-chunk": "^0.0.3",
     "vite-plugin-image-optimizer": "^2.0.2",
     "xo": "^1.2.2"
+  },
+  "dependencies": {
+    "@mantine/carousel": "^8.2.8",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-auto-scroll": "^8.6.0",
+    "embla-carousel-react": "^8.6.0"
   }
 }
