@@ -38,7 +38,7 @@ export const splashComing = style({
   maxWidth: "100vw",
   // DESIGN: Start hidden and fade in after logo
   opacity: 0,
-  animation: `${textFadeIn} 1s ease-out 1s forwards`,
+  animation: `${textFadeIn} 1s ease-out .5s forwards`,
 });
 
 globalStyle(`section.${splashSection}.theme-dark`, {

@@ -23,7 +23,7 @@ const header = style({
   // DESIGN: Start hidden and drop down with React startup
   transform: "translateY(-100%)",
   opacity: 0,
-  animation: `${headerDropDown} 1s ease-out 1s forwards`,
+  animation: `${headerDropDown} 1s ease-out .5s forwards`,
 });
 
 const navLinks = style({});
