@@ -7,7 +7,3 @@ directory = "./result"
 [[env.production.routes]]
 pattern = "theescapement.com"
 custom_domain = true
-
-[[env.production.routes]]
-pattern = "www.theescapement.com"
-custom_domain = true
