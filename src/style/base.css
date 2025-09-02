@@ -18,16 +18,18 @@ h1,
 h2,
 h3 {
   line-height: var(--font-lineheight-1);
-  font-family: var(--theme-font-bold-family);
-  font-weight: var(--theme-font-bold-weight);
 }
 
 h2 {
-  max-width: var(--size-header-1);
+  font-family: var(--theme-font-bold-family);
+  font-weight: var(--theme-font-bold-weight);
   font-size: var(--s2);
+  max-width: var(--size-header-1);
 }
 
 h3 {
+  font-family: var(--theme-font-legible-family);
+  font-weight: normal;
   max-width: var(--size-header-3);
   font-size: var(--s1);
 }
@@ -78,7 +80,8 @@ section.theme-dark {
   background-position: center;
   background-repeat: repeat;
 
-  h2 {
+  h2,
+  h3 {
     color: var(--theme-dark-color-accent);
   }
 
@@ -112,7 +115,8 @@ section.theme-light {
   background-repeat: space repeat;
   /* background-attachment: scroll, local; */
 
-  h2 {
+  h2,
+  h3 {
     color: var(--theme-light-color-accent);
   }
 

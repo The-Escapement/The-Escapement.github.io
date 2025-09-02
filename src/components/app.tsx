@@ -3,17 +3,19 @@ import "@mantine/core/styles.css";
 import { MantineProvider, Box, Button } from "@mantine/core";
 import { useInViewport } from "@mantine/hooks";
 import theme from "../style/mantine.ts";
+import { splashSection, splashComing } from "./splash.css";
+import Header from "./header.tsx";
 import Subscribe from "./subscribe.tsx";
 import Section from "./section.tsx";
 import Team from "./team.tsx";
-import Header from "./header.tsx";
-import { splashSection, splashComing } from "./splash.css";
+import Sponsors from "./sponsors.tsx";
 import { features } from "~config";
 
 const logos = (
   <Section.Content id="section-sponsors" aria-labelledby="title-sponsors">
     <h2 id="title-sponsors">Sponsors</h2>
     <p>Thanks to our sponsors!</p>
+    <Sponsors />
   </Section.Content>
 );
 
