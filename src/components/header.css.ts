@@ -13,7 +13,7 @@ const headerDropDown = keyframes({
   },
 });
 
-const headerBreakpoint = "730px";
+const headerBreakpoint = "780px";
 
 const header = style({
   position: "fixed",
@@ -24,6 +24,15 @@ const header = style({
   transform: "translateY(-100%)",
   opacity: 0,
   animation: `${headerDropDown} 1s ease-out .5s forwards`,
+});
+
+globalStyle(`${header} cluster-l > *:not(*:first-child)`, {
+  marginLeft: "auto",
+  paddingRight: "var(--size-2)",
+});
+
+globalStyle(`${header} cluster-l *:first-child`, {
+  marginLeft: "0",
 });
 
 const navLinks = style({});
@@ -93,6 +102,11 @@ globalStyle(`${header} ${navLinks}`, {
       visibility: "hidden",
     },
   },
+});
+
+globalStyle(`${header} ${navLinks} cluster-l *:first-child`, {
+  marginLeft: "auto",
+  paddingRight: "var(--size-2)",
 });
 
 globalStyle(`${header} ${navLinks}.menu-opened`, {
