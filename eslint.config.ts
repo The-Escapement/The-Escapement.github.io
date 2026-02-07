@@ -7,6 +7,8 @@ import { fixupConfigRules } from "@eslint/compat";
 import preact from "eslint-config-preact";
 import type { Linter } from "eslint";
 
+type ConfigPlugin = NonNullable<Linter.Config["plugins"]>[string];
+
 const config: Linter.Config[] = [
   ...fixupConfigRules(preact).map((config) => ({
     ...config,
@@ -60,7 +62,9 @@ const config: Linter.Config[] = [
   {
     files: ["**/*.css"],
     plugins: {
-      css,
+      // @eslint/css rule types don't match Linter.Plugin; runtime is correct
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- see above
+      css: css as ConfigPlugin,
     },
     language: "css/css",
     rules: {
