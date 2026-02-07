@@ -1,5 +1,7 @@
 ignoredBuiltDependencies:
   - esbuild
+  - sharp
+  - unrs-resolver
 
 onlyBuiltDependencies:
   - "@parcel/watcher"
