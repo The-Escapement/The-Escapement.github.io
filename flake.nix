@@ -95,7 +95,6 @@
             nixpkgs.unstable.instaloader
             nixpkgs.unstable.nodejs_24
             nixpkgs.unstable.pnpm_10
-            nixpkgs.unstable.prettier
             nixpkgs.unstable.typescript-language-server
             nixpkgs.unstable.wrangler
           ];
