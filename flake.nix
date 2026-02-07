@@ -66,9 +66,10 @@
                 };
               nativeBuildInputs = [
                 nixpkgs.unstable.nodejs_24
-                nixpkgs.unstable.pnpm_10.configHook
+                nixpkgs.unstable.pnpm
+                nixpkgs.unstable.pnpmConfigHook
               ];
-              pnpmDeps = nixpkgs.unstable.pnpm_10.fetchDeps {
+              pnpmDeps = nixpkgs.unstable.fetchPnpmDeps {
                 inherit (finalAttrs) pname version src;
                 fetcherVersion = 2;
                 hash = "sha256-frABMCWpq2j6VagFEmxl7E3xCX8p5FTxLPjooX0mA+Y=";
