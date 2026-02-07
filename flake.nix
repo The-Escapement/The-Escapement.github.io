@@ -73,9 +73,9 @@
                 fetcherVersion = 2;
                 hash = "sha256-YEAjpJM9ygcm6RmpFxGzUgWmO0Q0gkOET03k7liFTvM=";
               };
-              buildPhase = ''pnpm run build:${type} '';
-              checkPhase = ''pnpm run lint '';
-              installPhase = ''cp -r dist $out '';
+              buildPhase = "pnpm run build:${type} ";
+              checkPhase = "pnpm run lint ";
+              installPhase = "cp -r dist $out ";
               dontPatchShebangs = true;
               dontStrip = true;
             });
